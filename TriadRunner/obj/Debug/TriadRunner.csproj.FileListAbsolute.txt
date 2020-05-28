@@ -1,0 +1,12 @@
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\bin\Debug\TriadRunner.exe
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\bin\Debug\TriadRunner.pdb
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb
+C:\Users\Иван\Documents\Repos\TriadNS\bin\Debug\TriadRunner.exe
+C:\Users\Иван\Documents\Repos\TriadNS\bin\Debug\TriadRunner.pdb
+C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojAssemblyReference.cache
+C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.CoreCompileInputs.cache
+C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.CopyComplete
+C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb

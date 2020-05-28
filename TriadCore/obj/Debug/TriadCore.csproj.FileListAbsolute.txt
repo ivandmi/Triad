@@ -1,0 +1,17 @@
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\bin\Debug\TriadCore.XML
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\bin\Debug\TriadCore.dll
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\bin\Debug\TriadCore.pdb
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadCore\obj\Debug\TriadCore.Properties.Resources.resources
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadCore\obj\Debug\TriadCore.csproj.GenerateResource.Cache
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadCore\obj\Debug\TriadCore.dll
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadCore\obj\Debug\TriadCore.pdb
+E:\Иван\Учеба\Курсовая\TriadNS_Update\TriadNS\TriadCore\obj\Debug\TriadCore.csprojResolveAssemblyReference.cache
+C:\Users\Иван\Documents\Repos\TriadNS\bin\Debug\TriadCore.XML
+C:\Users\Иван\Documents\Repos\TriadNS\bin\Debug\TriadCore.dll
+C:\Users\Иван\Documents\Repos\TriadNS\bin\Debug\TriadCore.pdb
+C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.Properties.Resources.resources
+C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.csproj.GenerateResource.cache
+C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.csproj.CoreCompileInputs.cache
+C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.dll
+C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.pdb
+C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.csprojAssemblyReference.cache
