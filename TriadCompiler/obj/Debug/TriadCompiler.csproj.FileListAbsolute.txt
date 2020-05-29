@@ -16,3 +16,13 @@ C:\Users\Иван\Documents\Repos\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.
 C:\Users\Иван\Documents\Repos\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.csproj.CopyComplete
 C:\Users\Иван\Documents\Repos\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.exe
 C:\Users\Иван\Documents\Repos\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.pdb
+C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadCompiler.xml
+C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadCompiler.exe
+C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadCompiler.pdb
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.csprojAssemblyReference.cache
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.Properties.Resources.resources
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.csproj.GenerateResource.cache
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.csproj.CoreCompileInputs.cache
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.csproj.CopyComplete
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.exe
+C:\Users\Иван\Documents\Repos\Triad\TriadCompiler\obj\Debug\TriadCompiler.pdb

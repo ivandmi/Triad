@@ -10,3 +10,10 @@ C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.cspr
 C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.csproj.CopyComplete
 C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
 C:\Users\Иван\Documents\Repos\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb
+C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadRunner.exe
+C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadRunner.pdb
+C:\Users\Иван\Documents\Repos\Triad\TriadRunner\obj\Debug\TriadRunner.csprojAssemblyReference.cache
+C:\Users\Иван\Documents\Repos\Triad\TriadRunner\obj\Debug\TriadRunner.csproj.CoreCompileInputs.cache
+C:\Users\Иван\Documents\Repos\Triad\TriadRunner\obj\Debug\TriadRunner.csproj.CopyComplete
+C:\Users\Иван\Documents\Repos\Triad\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\Иван\Documents\Repos\Triad\TriadRunner\obj\Debug\TriadRunner.pdb

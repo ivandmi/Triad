@@ -18,3 +18,14 @@ C:\Users\Иван\Documents\Repos\TriadNS\example\obj\Debug\example.csproj.CoreC
 C:\Users\Иван\Documents\Repos\TriadNS\example\obj\Debug\example.csproj.CopyComplete
 C:\Users\Иван\Documents\Repos\TriadNS\example\obj\Debug\example.exe
 C:\Users\Иван\Documents\Repos\TriadNS\example\obj\Debug\example.pdb
+C:\Users\Иван\Documents\Repos\Triad\example\bin\Debug\example.exe.config
+C:\Users\Иван\Documents\Repos\Triad\example\bin\Debug\example.exe
+C:\Users\Иван\Documents\Repos\Triad\example\bin\Debug\example.pdb
+C:\Users\Иван\Documents\Repos\Triad\example\bin\Debug\TriadCore.dll
+C:\Users\Иван\Documents\Repos\Triad\example\bin\Debug\TriadCore.pdb
+C:\Users\Иван\Documents\Repos\Triad\example\bin\Debug\TriadCore.xml
+C:\Users\Иван\Documents\Repos\Triad\example\obj\Debug\example.csprojAssemblyReference.cache
+C:\Users\Иван\Documents\Repos\Triad\example\obj\Debug\example.csproj.CoreCompileInputs.cache
+C:\Users\Иван\Documents\Repos\Triad\example\obj\Debug\example.csproj.CopyComplete
+C:\Users\Иван\Documents\Repos\Triad\example\obj\Debug\example.exe
+C:\Users\Иван\Documents\Repos\Triad\example\obj\Debug\example.pdb

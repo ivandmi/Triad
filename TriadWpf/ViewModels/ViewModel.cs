@@ -37,7 +37,6 @@ namespace TriadWpf.ViewModels
             AddVertexCommand = new RelayCommand(AddVertex);
             ((RelayCommand)AddVertexCommand).IsEnabled = true;
             VertexList = new ObservableCollection<DataVertex>();
-            
         }
 
         public ICommand AddVertexCommand { get; private set; }
@@ -51,8 +50,6 @@ namespace TriadWpf.ViewModels
             DataVertex dt = new DataVertex(new CoreName(name));
             graph.Add(dt.Node);
             VertexList.Add(dt);
-            TextBox tx;
-            tx.ToolTip 
         }
 
         private void AddEdge(DataVertex from, DataVertex to)

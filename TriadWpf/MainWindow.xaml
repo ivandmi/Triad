@@ -7,6 +7,7 @@
         xmlns:vies="clr-namespace:TriadWpf.ViewModels"
         xmlns:graphxModels="clr-namespace:TriadWpf.GraphXModels"
         xmlns:graphxctrl="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="326" Width="669.333">
     <Window.DataContext>
@@ -24,12 +25,14 @@
         
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="5">
             <graphxctrl:ZoomControl x:Name="gg_zoomctrl">
-                <graphxModels:GraphAreaControl x:Name="gArea" VertexListSource="{Binding VertexList}"/>
+                <graphxModels:GraphAreaControl x:Name="gArea" VertexListSource="{Binding VertexList}">
+                    
+                </graphxModels:GraphAreaControl>
             </graphxctrl:ZoomControl>
         </Border>
 
         <Border Grid.Row="1" Grid.Column="1" Margin="5">
-            <Button Name="btnAddVertex" Content="Add vertex" Height="25" Margin="0,27,0,215" Command="{Binding AddCommand}"></Button>
+            <Button Name="btnAddVertex" Content="Add vertex" Height="25" Margin="0,27,0,215" Command="{Binding AddVertexCommand}"></Button>
         </Border>
 
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
@@ -37,6 +40,7 @@
                 <MenuItem Header="Создать"/>
                 <MenuItem Header="Сохранить"/>
             </MenuItem>
+            <TextBox Width="75" Text="{Binding Example}"></TextBox>
         </Menu>
     </Grid>
 </Window>

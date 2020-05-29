@@ -67,7 +67,6 @@ namespace TriadWpf.GraphXModels
         public override string ToString()
         {
             return Text;
-            Source.
         }
 
         private void OnPropertyChanged(string propname)
@@ -75,7 +74,6 @@ namespace TriadWpf.GraphXModels
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propname));
-                PropertyChanged()
             }
         }
     }
