@@ -7,9 +7,13 @@
         xmlns:vies="clr-namespace:TriadWpf.ViewModels"
         xmlns:graphxModels="clr-namespace:TriadWpf.GraphXModels"
         xmlns:graphxctrl="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
-        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
-        Title="MainWindow" Height="326" Width="669.333">
+        Title="MainWindow" Height="326" Width="669.333" Name="win">
+    <Window.Resources>
+        <Style TargetType="{x:Type graphxctrl:VertexControl}">
+
+        </Style>
+    </Window.Resources>
     <Window.DataContext>
         <vies:ViewModel/>
     </Window.DataContext>
@@ -40,7 +44,11 @@
                 <MenuItem Header="Создать"/>
                 <MenuItem Header="Сохранить"/>
             </MenuItem>
-            <TextBox Width="75" Text="{Binding Example}"></TextBox>
+            <CheckBox x:Name="btnEditMode">Режим редактирования</CheckBox>
         </Menu>
+
+        <Popup IsOpen="{Binding ElementName=win, Path=IsEditMode, Mode=OneWay}" Placement="Mouse">
+            <ComboBox ItemsSource="{Binding ElementName=win, Path=VertexFromEditMode.Vertex.Node.Poluses}"/>
+        </Popup>
     </Grid>
 </Window>

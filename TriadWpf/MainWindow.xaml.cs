@@ -1,6 +1,9 @@
 ﻿using GraphX.Common.Enums;
+using GraphX.Controls;
+using GraphX.Controls.Models;
 using GraphX.Logic.Algorithms.LayoutAlgorithms;
 using GraphX.Logic.Algorithms.OverlapRemoval;
+using ShowcaseApp.WPF.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -66,9 +69,111 @@ namespace TriadWpf
             logicCore.AsyncAlgorithmCompute = false;
 
             gArea.SetVerticesDrag(true, true);
-            gArea.SetEdgesDrag(true);
+            gArea.SetEdgesDrag(false);
+
+            gArea.VertexSelected += graphArea_VertexSelected;
+            btnEditMode.Checked += BtnEditMode_Checked;
+            btnEditMode.Unchecked += BtnEditMode_Unchecked;
+            _editorManager = new EditorObjectManager(gArea, gg_zoomctrl);
         }
 
+        private void BtnEditMode_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _opMode = EditorOperationMode.Select;
+            ClearEditMode();
+        }
 
+        private void BtnEditMode_Checked(object sender, RoutedEventArgs e)
+        {
+            if (btnEditMode.IsChecked == true)
+            {
+                _opMode = EditorOperationMode.Edit;
+            }
+        }
+
+        // Код по созданию ребер, если возможно, то лучше вынести в Behavior
+        // Пока так, потому что про*бался со сроками
+        // Тупо скопировал из примеров библиотеки GraphX
+
+        private EditorOperationMode _opMode = EditorOperationMode.Select;
+        private VertexControl _ecFrom;
+        private readonly EditorObjectManager _editorManager;
+
+        public VertexControl VertexFromEditMode
+        {
+            get => _ecFrom;
+        }
+
+        public Boolean IsEditMode
+        {
+            get => _opMode == EditorOperationMode.Edit;
+        }
+
+        private void ClearEditMode()
+        {
+            if (_ecFrom != null) HighlightBehaviour.SetHighlighted(_ecFrom, false);
+            _editorManager.DestroyVirtualEdge();
+            _ecFrom = null;
+        }
+
+        private void CreateEdgeControl(VertexControl vc)
+        {
+            if (_ecFrom == null)
+            {
+                _editorManager.CreateVirtualEdge(vc, vc.GetPosition());
+                _ecFrom = vc;
+                HighlightBehaviour.SetHighlighted(_ecFrom, true);
+                return;
+            }
+            if (_ecFrom == vc) return;
+
+            var data = new DataEdge((DataVertex)_ecFrom.Vertex, (DataVertex)vc.Vertex);
+            var ec = new EdgeControl(_ecFrom, vc, data);
+            gArea.InsertEdgeAndData(data, ec, 0, true);
+
+            HighlightBehaviour.SetHighlighted(_ecFrom, false);
+            _ecFrom = null;
+            _editorManager.DestroyVirtualEdge();
+        }
+
+        void graphArea_VertexSelected(object sender, VertexSelectedEventArgs args)
+        {
+            if (args.MouseArgs.LeftButton == MouseButtonState.Pressed)
+            {
+                switch (_opMode)
+                {
+                    case EditorOperationMode.Edit:
+                        CreateEdgeControl(args.VertexControl);
+                        break;
+                    case EditorOperationMode.Delete:
+                        SafeRemoveVertex(args.VertexControl);
+                        break;
+                    default:
+                        if (_opMode == EditorOperationMode.Select && args.Modifiers == ModifierKeys.Control)
+                            SelectVertex(args.VertexControl);
+                        break;
+                }
+            }
+        }
+
+        private void SafeRemoveVertex(VertexControl vc)
+        {
+            //remove vertex and all adjacent edges from layout and data graph
+            gArea.RemoveVertexAndEdges(vc.Vertex as DataVertex);
+        }
+
+        private static void SelectVertex(DependencyObject vc)
+        {
+            if (DragBehaviour.GetIsTagged(vc))
+            {
+                HighlightBehaviour.SetHighlighted(vc, false);
+                DragBehaviour.SetIsTagged(vc, false);
+            }
+            else
+            {
+                HighlightBehaviour.SetHighlighted(vc, true);
+                DragBehaviour.SetIsTagged(vc, true);
+            }
+        }
     }
 }

@@ -1,13 +1,18 @@
 ﻿using GraphX.Controls;
+using GraphX.Controls.Models;
 using QuickGraph;
+using ShowcaseApp.WPF.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using TriadWpf.ViewModels;
 
 namespace TriadWpf.GraphXModels
@@ -17,6 +22,18 @@ namespace TriadWpf.GraphXModels
         public GraphAreaControl() : base()
         {
             this.Unloaded += GraphAreaControl_Unloaded;
+            VertexSelected += GraphAreaControl_VertexSelected;
+            this.PreviewMouseDown += GraphAreaControl_PreviewMouseDown;
+        }
+
+        private void GraphAreaControl_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SelectedVertex = null;
+        }
+
+        private void GraphAreaControl_VertexSelected(object sender, VertexSelectedEventArgs args)
+        {
+            SelectedVertex = args.VertexControl;
         }
 
         /// <summary>
@@ -112,9 +129,6 @@ namespace TriadWpf.GraphXModels
             }
         }
 
-        /// НЕ ЗАБУДЬ ДОДЕЛАТЬ ЭТО
-        /// 
-
         //to do Do Not Forget To Remove Event On UserControl Unloaded
         private void GraphAreaControl_Unloaded(object sender, RoutedEventArgs e)
         {
@@ -129,5 +143,9 @@ namespace TriadWpf.GraphXModels
             }
         }
 
+        public VertexControl SelectedVertex
+        {
+            private set; get;
+        }
     }
 }

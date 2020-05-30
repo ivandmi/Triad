@@ -54,7 +54,9 @@ namespace TriadWpf.ViewModels
 
         private void AddEdge(DataVertex from, DataVertex to)
         {
-            DataEdge de = new DataEdge(from, to);
+            //from.AddOutputArc(to);
+            //to.AddInputArc(from);
+            //DataEdge de = new DataEdge()
         }
     }
 }

@@ -82,8 +82,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BooleanAndConverter.cs" />
     <Compile Include="Interfaces\IObservableGraph.cs" />
     <Compile Include="Models\DataVertex.cs" />
+    <Compile Include="Models\EditorObjectManager.cs" />
+    <Compile Include="Models\EditorOperationMode.cs" />
     <Compile Include="Models\GraphAreaControl.cs" />
     <Compile Include="Models\GraphExample.cs" />
     <Compile Include="Models\LogicCore.cs" />
@@ -150,6 +153,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
