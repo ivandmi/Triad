@@ -11,7 +11,22 @@
         Title="MainWindow" Height="326" Width="669.333" Name="win">
     <Window.Resources>
         <Style TargetType="{x:Type graphxctrl:VertexControl}">
-
+            <Setter Property="ContextMenu">
+                <Setter.Value>
+                    <StaticResource ResourceKey="VertextContextMenu"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Chartreuse"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="ContextMenu">
+                <Setter.Value>
+                    <ContextMenu Placement="Mouse">
+                        <MenuItem Command="{Binding AddPolusCommand}" CommandParameter="example" Header="Добавить полюс"/>
+                        <MenuItem Header="{Binding Node}"/>
+                    </ContextMenu>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Window.DataContext>
@@ -47,8 +62,6 @@
             <CheckBox x:Name="btnEditMode">Режим редактирования</CheckBox>
         </Menu>
 
-        <Popup IsOpen="{Binding ElementName=win, Path=IsEditMode, Mode=OneWay}" Placement="Mouse">
-            <ComboBox ItemsSource="{Binding ElementName=win, Path=VertexFromEditMode.Vertex.Node.Poluses}"/>
-        </Popup>
+        
     </Grid>
 </Window>

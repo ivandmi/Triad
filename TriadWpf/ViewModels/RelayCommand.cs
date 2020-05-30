@@ -9,10 +9,10 @@ namespace TriadWpf.ViewModels
 {
     public class RelayCommand : ICommand
     {
-        private readonly Action _handler;
+        private readonly Action<object> _handler;
         private bool _isEnabled;
 
-        public RelayCommand(Action handler)
+        public RelayCommand(Action<object> handler)
         {
             _handler = handler;
         }
@@ -42,7 +42,7 @@ namespace TriadWpf.ViewModels
 
         public void Execute(object parameter)
         {
-            _handler();
+            _handler(parameter);
         }
     }
 }

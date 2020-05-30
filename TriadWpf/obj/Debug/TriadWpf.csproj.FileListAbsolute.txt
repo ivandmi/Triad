@@ -52,3 +52,14 @@ C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\TriadWpf.Properties.R
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\TriadWpf.csproj.GenerateResource.cache
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\TriadWpf.csproj.CoreCompileInputs.cache
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\TriadWpf.csproj.CopyComplete
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll

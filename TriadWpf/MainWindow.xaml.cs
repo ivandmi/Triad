@@ -154,6 +154,10 @@ namespace TriadWpf
                         break;
                 }
             }
+            if (args.MouseArgs.RightButton == MouseButtonState.Pressed)
+            {
+                //args.VertexControl.ContextMenu.IsOpen = true;
+            }
         }
 
         private void SafeRemoveVertex(VertexControl vc)

@@ -1,8 +1,11 @@
 ﻿using GraphX.Common.Enums;
 using GraphX.Common.Interfaces;
+using GraphX.Common.Models;
 using System;
 using System.ComponentModel;
+using System.Windows.Input;
 using TriadCore;
+using TriadWpf.ViewModels;
 
 namespace TriadWpf.GraphXModels
 {
@@ -11,28 +14,26 @@ namespace TriadWpf.GraphXModels
     /// В таком случае, она не должна реализовывать Node, а должна содержать его внутри и впредоставлять взаимодействие с ним через команды.
     /// Но это не факт, что правильное решение. Не знаю, решил сделать так. 
     /// </summary>
-    public class DataVertex : IGraphXVertex, IEquatable<IGraphXVertex>, IIdentifiableGraphDataObject, INotifyPropertyChanged
+    public class DataVertex : VertexBase, INotifyPropertyChanged
     {
-        public double Angle { get; set; }
-        public int GroupId { get; set; }
-        public long ID { get; set; }
-        public ProcessingOptionEnum SkipProcessing { get; set; }
-
         public Node Node { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool Equals(IGraphXVertex other)
+        public DataVertex(Node node)
         {
-            return ID == other.ID;
+            Node = node;
+            AddPolusCommand = new RelayCommand(obj => AddPolus(obj));
+            (AddPolusCommand as RelayCommand).IsEnabled = true;
         }
 
-        public DataVertex(CoreName name)
+        private void AddPolus(object name)
         {
-            Node = new Node(name);
+            string n = name as string;
+            Node.DeclarePolus(new CoreName(n));
         }
 
-
+        public ICommand AddPolusCommand { get; private set; }
 
         private void OnPropertyChanged(string propname)
         {

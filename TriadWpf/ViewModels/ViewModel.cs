@@ -34,7 +34,7 @@ namespace TriadWpf.ViewModels
         public ViewModel()
         {
             graph = new Graph();
-            AddVertexCommand = new RelayCommand(AddVertex);
+            AddVertexCommand = new RelayCommand(obj => AddVertex(obj));
             ((RelayCommand)AddVertexCommand).IsEnabled = true;
             VertexList = new ObservableCollection<DataVertex>();
         }
@@ -44,11 +44,12 @@ namespace TriadWpf.ViewModels
         public ICommand AddEdgeCommand { get; private set; }
         public ICommand RemoveEdgeCommand { get; private set; }
 
-        private void AddVertex()
+        private void AddVertex(object obj)
         {
             string name = "Вершина " + (graph.NodeCount + 1).ToString();
-            DataVertex dt = new DataVertex(new CoreName(name));
-            graph.Add(dt.Node);
+            Node node = new Node(new CoreName(name));
+            DataVertex dt = new DataVertex(node);
+            graph.Add(node);
             VertexList.Add(dt);
         }
 
