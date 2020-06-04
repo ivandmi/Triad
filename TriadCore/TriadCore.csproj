@@ -121,6 +121,8 @@
     <Compile Include="Календарь событий\События\InternalEvent.cs" />
     <Compile Include="Календарь событий\События\ReceivingMessageEvent.cs" />
     <Compile Include="Общее\Функции\SetFunctions.cs" />
+    <Compile Include="Рутины\Базовые\MessageGenerator.cs" />
+    <Compile Include="Рутины\Базовые\Receiver.cs" />
     <Compile Include="Структуры\Графовые константы\ComplGraph.cs" />
     <Compile Include="Структуры\Графовые константы\Rectan.cs" />
     <Compile Include="Структуры\Графовые константы\Tree.cs" />

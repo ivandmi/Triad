@@ -1,6 +1,6 @@
 ﻿using QuickGraph;
 
-namespace TriadWpf.GraphXModels
+namespace TriadWpf.View.GraphXModels
 {
     public class GraphExample : BidirectionalGraph<DataVertex, DataEdge>
     { }

@@ -63,3 +63,6 @@ C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\ja\System.Windows.Int
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\ko\System.Windows.Interactivity.resources.dll
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\App.baml
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\AddArcForm.g.cs
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\AddArcForm.baml

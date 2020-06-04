@@ -79,23 +79,30 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Converters\BooleanAndConverter.cs" />
-    <Compile Include="Interfaces\IObservableGraph.cs" />
-    <Compile Include="Models\DataVertex.cs" />
+    </Page>
+    <Compile Include="Common\Converters\BooleanAndConverter.cs" />
+    <Compile Include="Common\Enums\RoutineType.cs" />
+    <Compile Include="Common\GraphEventArgs\EdgeEventArg.cs" />
+    <Compile Include="Common\GraphEventArgs\PolusEventArgs.cs" />
+    <Compile Include="Common\GraphEventArgs\VertexEventArgs.cs" />
+    <Compile Include="Common\Interfaces\IGraphViewManager.cs" />
+    <Compile Include="Common\Interfaces\IMainView.cs" />
+    <Compile Include="Common\RoutinesRepository.cs" />
+    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="View\AddArcForm.xaml.cs">
+      <DependentUpon>AddArcForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GrapXModels\DataVertex.cs" />
     <Compile Include="Models\EditorObjectManager.cs" />
     <Compile Include="Models\EditorOperationMode.cs" />
-    <Compile Include="Models\GraphAreaControl.cs" />
-    <Compile Include="Models\GraphExample.cs" />
-    <Compile Include="Models\LogicCore.cs" />
-    <Compile Include="Models\ob.cs" />
-    <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="ViewModels\ViewBase.cs" />
-    <Compile Include="ViewModels\ViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelVertex.cs" />
+    <Compile Include="View\GrapXModels\GraphAreaControl.cs" />
+    <Compile Include="View\GrapXModels\GraphExample.cs" />
+    <Compile Include="View\GrapXModels\LogicCore.cs" />
+    <Compile Include="Presenter\ViewBase.cs" />
+    <Compile Include="View\GraphViewManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,11 +111,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DataEdge.cs" />
+    <Compile Include="View\GrapXModels\DataEdge.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddArcForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -155,8 +166,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

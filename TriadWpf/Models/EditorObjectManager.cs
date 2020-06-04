@@ -5,7 +5,7 @@ using System.Windows.Shapes;
 using GraphX;
 using GraphX.Controls;
 using GraphX.Controls.Models;
-using TriadWpf.GraphXModels;
+using TriadWpf.View.GraphXModels;
 
 namespace ShowcaseApp.WPF.Models
 {

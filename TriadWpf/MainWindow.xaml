@@ -5,35 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TriadWpf"
         xmlns:vies="clr-namespace:TriadWpf.ViewModels"
-        xmlns:graphxModels="clr-namespace:TriadWpf.GraphXModels"
+        xmlns:graphxModels="clr-namespace:TriadWpf.View.GraphXModels"
         xmlns:graphxctrl="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="326" Width="669.333" Name="win">
     <Window.Resources>
         <Style TargetType="{x:Type graphxctrl:VertexControl}">
-            <Setter Property="ContextMenu">
-                <Setter.Value>
-                    <StaticResource ResourceKey="VertextContextMenu"/>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Background" Value="Chartreuse"/>
-        </Style>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="ContextMenu">
-                <Setter.Value>
-                    <ContextMenu Placement="Mouse">
-                        <MenuItem Command="{Binding AddPolusCommand}" CommandParameter="example" Header="Добавить полюс"/>
-                        <MenuItem Header="{Binding Node}"/>
-                    </ContextMenu>
-                </Setter.Value>
-            </Setter>
+            <Style.Triggers>
+                <Trigger Property="graphxctrl:HighlightBehaviour.Highlighted" Value="True">
+                    <Setter Property="Background" Value="Coral"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Window.DataContext>
-        <vies:ViewModel/>
-    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -41,20 +28,29 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <ListBox Grid.Row="1" Grid.Column="0" x:Name="vertexView" Margin="5">
+            <ListBox.ItemContainerStyle>
+                <Style>
+                    <Setter Property="ListBoxItem.AllowDrop" Value="True"/>
+                    <EventSetter Event="ListBoxItem.PreviewMouseLeftButtonDown" Handler="VertexView_PreviewMouseLeftButtonDown"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         
-        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="5">
-            <graphxctrl:ZoomControl x:Name="gg_zoomctrl">
-                <graphxModels:GraphAreaControl x:Name="gArea" VertexListSource="{Binding VertexList}">
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <graphxctrl:ZoomControl x:Name="zoomctrl" AllowDrop="True">
+                <graphxModels:GraphAreaControl x:Name="gArea">
                     
                 </graphxModels:GraphAreaControl>
             </graphxctrl:ZoomControl>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="1" Margin="5">
-            <Button Name="btnAddVertex" Content="Add vertex" Height="25" Margin="0,27,0,215" Command="{Binding AddVertexCommand}"></Button>
+        <Border Grid.Row="1" Grid.Column="2" Margin="5">
+            <Button Name="btnAddVertex" Content="Add vertex" Height="25" Margin="0,27,0,215" Click="btnAddVertex_Click"></Button>
         </Border>
 
-        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <MenuItem Header="Файл">
                 <MenuItem Header="Создать"/>
                 <MenuItem Header="Сохранить"/>

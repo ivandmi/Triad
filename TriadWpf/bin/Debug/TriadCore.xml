@@ -2082,6 +2082,12 @@
             <param name="set">Множество</param>
             <returns>Размер мн-ва</returns>
         </member>
+        <member name="M:TriadCore.MessageGenerator.#ctor(System.Double)">
+            <summary>
+            Инициализирует новый экземпляр класса MessageGenerator с интервалом отправки delay
+            </summary>
+            <param name="delay">Интервал времени между отправкой сообщений</param>
+        </member>
         <member name="M:TriadCore.Tree.AddConnection(TriadCore.CoreName,TriadCore.CoreName,TriadCore.CoreName,TriadCore.CoreName)">
             <summary>
             Установить "нужное" соединение
