@@ -22,7 +22,7 @@ namespace TriadCore
         {
             //sent = false;
             DoVarChanging(new CoreName("sent"));
-            Sсhedule(0, this.Request);
+            Schedule(0, this.Request);
             PrintMessage("Инциализация клиента");
         }
         
@@ -30,7 +30,7 @@ namespace TriadCore
         {
             SendMessageViaAllPoluses("Запрос на обслуживание");
             PrintMessage("Клиент послал запрос серверу");
-            Sсhedule(deltaT, this.Request);
+            Schedule(deltaT, this.Request);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace example
         {
             if ((bad))
             {
-                Sсhedule(1, this.SendMessage);
+                Schedule(1, this.SendMessage);
             }
         }
 
@@ -50,7 +50,7 @@ namespace example
             }
             if ((Defence == false))
             {
-                Sсhedule(1, this.SendMessage);
+                Schedule(1, this.SendMessage);
             }
         }
 
@@ -59,7 +59,7 @@ namespace example
             Int32 polusIndex = GetPolusIndex(polusName);
             if ((Defence == false) && (Seed == 0) && (Rand.RandomReal() < beta))
             {
-                Sсhedule(1, this.SendMessage);
+                Schedule(1, this.SendMessage);
                 bad = true;
                 DoVarChanging(new CoreName("bad"));
                 Seed = Seed + 1;

@@ -3027,7 +3027,7 @@
             </summary>
             <returns>Новая рутина</returns>
         </member>
-        <member name="M:TriadCore.Routine.Sсhedule(System.Double,TriadCore.InternalEventHandler[])">
+        <member name="M:TriadCore.Routine.Schedule(System.Double,TriadCore.InternalEventHandler[])">
             <summary>
             Планирование события
             </summary>

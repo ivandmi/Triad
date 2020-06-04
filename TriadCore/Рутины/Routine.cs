@@ -42,7 +42,7 @@ namespace TriadCore
         /// </summary>
         /// <param name="deltaTime">Время ожидания срабатывания события</param>
         /// <param name="eventHandlerList">Обработчики событий, происходящих в это время</param>
-        protected void Sсhedule( double deltaTime, params InternalEventHandler[] eventHandlerList )
+        protected void Schedule( double deltaTime, params InternalEventHandler[] eventHandlerList )
             {
             if ( this.baseNode != null )
                 {

@@ -41,7 +41,7 @@ namespace TriadCore
                 DoVarChanging(new CoreName("length"));
                 if (!busy) 
                 {
-                    Sсhedule(deltaT, this.EndService);
+                    Schedule(deltaT, this.EndService);
                 }
                 busy = true;
                 DoVarChanging(new CoreName("busy"));
@@ -63,7 +63,7 @@ namespace TriadCore
             }
             if (length>0) 
             {
-                Sсhedule(deltaT, this.EndService);
+                Schedule(deltaT, this.EndService);
             }
             else 
             {
