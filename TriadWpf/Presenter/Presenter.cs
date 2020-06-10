@@ -1,15 +1,25 @@
-﻿using TriadCore;
+using TriadCore;
 using TriadWpf.Interfaces;
 using TriadWpf.GraphEventArgs;
 using TriadWpf.Common;
+using GraphX.Common;
+using System.Windows;
+using System;
+using System.Collections;
+using System.Windows.Documents;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TriadWpf.Presenter
 {
     public class AppPresenter
     {
-        IGraphViewManager graphViewManager;
         IMainView mainView;
         RoutinesRepository routinesRepository;
+
+        /// <summary>
+        /// Модель
+        /// </summary>
         Graph graph;
         public AppPresenter(IMainView view)
         {
@@ -31,6 +41,12 @@ namespace TriadWpf.Presenter
         private void MainView_AddPolusToNode(object sender, PolusEventArgs e)
         {
             graph[e.NodeName].DeclarePolus(e.PolusName);
+            var routine = graph[e.NodeName].NodeRoutine;
+            if (routine != null)
+            {
+                // Пока реализуем связь один к одному
+                routine.AddPolusPair(e.PolusName, e.PolusName);
+            }
             mainView.GraphViewManager.AddPolusToVertex(e.NodeName, e.PolusName);
         }
 
@@ -46,13 +62,37 @@ namespace TriadWpf.Presenter
 
         private void MainView_RemoveVertex(object sender, VertexEventArgs e)
         {
+            
             throw new System.NotImplementedException();
         }
 
         private void MainView_AddVertex(object sender, VertexEventArgs e)
         {
-            graph.DeclareNode(e.Name);
-            mainView.GraphViewManager.AddVertex(e.Name);
+            CoreName name;
+
+            if (e.Name != null)
+                name = e.Name;
+            else
+                name = new CoreName("Вершина "+(graph.NodeCount+1).ToString());
+
+            if (e.Point != null)
+                mainView.GraphViewManager.AddVertex(name, e.Point);
+            else
+                mainView.GraphViewManager.AddVertex(name); 
+            
+            if (e.RoutineViewItem.Type != Common.Enums.RoutineType.Undefined)
+            {
+                Node node = new Node(name);
+                node.RegisterRoutine(routinesRepository.GetRoutine(e.RoutineViewItem.Type));
+                //
+                //Магия с полюсами
+                //
+
+                // Если добавлять с тем же именем, что уже есть в графе, то он сольет полюса просто в одну вершину
+                graph.Add(node);
+            }
+            else
+                graph.DeclareNode(name);
         }
     }
 }

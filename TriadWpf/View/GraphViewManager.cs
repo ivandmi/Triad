@@ -1,5 +1,6 @@
 ﻿using GraphX.Controls;
 using System.Linq;
+using System.Windows;
 using TriadCore;
 using TriadWpf.Interfaces;
 using TriadWpf.View.GraphXModels;
@@ -37,6 +38,14 @@ namespace TriadWpf.View
             var vc = new VertexControl(vd);
             graphArea.AddVertexAndData(vd, vc, true);
             graphArea.RelayoutGraph();
+        }
+
+        public void AddVertex(CoreName node, Point point)
+        {
+            var vd = new DataVertex(node);
+            var vc = new VertexControl(vd);
+            vc.SetPosition(point);
+            graphArea.AddVertexAndData(vd, vc);
         }
 
         public void RemoveEdge(CoreName from, CoreName to)

@@ -2,6 +2,7 @@
 {
     public enum RoutineType
     {
+        Undefined,
         MessegeGenerator,
         Receiver
     }

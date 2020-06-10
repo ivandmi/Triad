@@ -18,7 +18,6 @@ C:\Users\Иван\Documents\Repos\TriadNS\TriadCore\obj\Debug\TriadCore.csprojAs
 C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadCore.XML
 C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadCore.dll
 C:\Users\Иван\Documents\Repos\Triad\bin\Debug\TriadCore.pdb
-C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.csprojAssemblyReference.cache
 C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.Properties.Resources.resources
 C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.csproj.GenerateResource.cache
 C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.csproj.CoreCompileInputs.cache

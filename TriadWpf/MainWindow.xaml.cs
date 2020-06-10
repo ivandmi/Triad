@@ -1,4 +1,4 @@
-﻿using GraphX.Common.Enums;
+using GraphX.Common.Enums;
 using GraphX.Controls;
 using GraphX.Controls.Models;
 using GraphX.Logic.Algorithms.LayoutAlgorithms;
@@ -17,6 +17,7 @@ using TriadWpf.View;
 using TriadWpf.View.GraphXModels;
 using TriadWpf.Common;
 using System.Collections.Generic;
+using TriadWpf.Common.GraphEventArgs;
 
 namespace TriadWpf
 {
@@ -94,10 +95,7 @@ namespace TriadWpf
         {
             //how to get dragged data by its type
             var pos = zoomctrl.TranslatePoint(e.GetPosition(zoomctrl), gArea);
-            var data = new DataVertex(new CoreName("dragNode"));
-            var vc = new VertexControl(data);
-            vc.SetPosition(pos);
-            gArea.AddVertexAndData(data, vc);
+            OnAddVertex(new VertexEventArgs(pos));
         }
 
         private void GArea_VertexClicked(object sender, VertexClickedEventArgs args)
@@ -205,6 +203,7 @@ namespace TriadWpf
             if (addArcForm.ShowDialog() == true)
             {
                 // Это событие отлиается от других тем, что не добавляет изменения во view стоит переименовать
+                // или добавлять на форме дугу тоже через presenter
                 OnAddEdge(new EdgeEventArg((_ecFrom.Vertex as DataVertex).NodeName, addArcForm.PolusFrom, (vc.Vertex as DataVertex).NodeName, addArcForm.PolusTo));
                 var data = new DataEdge((DataVertex)_ecFrom.Vertex, (DataVertex)vc.Vertex, addArcForm.PolusFrom, addArcForm.PolusTo);
                 var ec = new EdgeControl(_ecFrom, vc, data);
@@ -280,14 +279,18 @@ namespace TriadWpf
 
         private void btnAddVertex_Click(object sender, RoutedEventArgs e)
         {
-            string name = "Вершина " + (gArea.VertexList.Count+1).ToString();
-            OnAddVertex(new VertexEventArgs(new CoreName(name)));
+            OnAddVertex(new VertexEventArgs());
         }
 
         public void SetNodeTypes(IEnumerable<RoutineViewItem> items)
         {
             vertexView.ItemsSource = items;
             vertexView.DisplayMemberPath = "Name";
+        }
+
+        private void Add_Procedure_Click(object sender, RoutedEventArgs e)
+        {
+            procedureWin.Visibility = Visibility.Visible;
         }
     }
 }
