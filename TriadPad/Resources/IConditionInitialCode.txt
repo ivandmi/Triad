@@ -1,2 +1,3 @@
-icondition IC
-endic
+simcondition IC
+def
+endcond

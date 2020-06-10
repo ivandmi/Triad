@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -79,6 +79,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GraphEventArgs\ProcedureEventArgs.cs" />
+    <Compile Include="Common\ProcedureBuilder.cs" />
+    <Compile Include="View\ParamBox.xaml.cs">
+      <DependentUpon>ParamBox.xaml</DependentUpon>
+    </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,9 +93,15 @@
     <Compile Include="Common\GraphEventArgs\EdgeEventArg.cs" />
     <Compile Include="Common\GraphEventArgs\PolusEventArgs.cs" />
     <Compile Include="Common\GraphEventArgs\VertexEventArgs.cs" />
+    <Compile Include="Common\Interfaces\ICommonCondition.cs" />
     <Compile Include="Common\Interfaces\IGraphViewManager.cs" />
     <Compile Include="Common\Interfaces\IMainView.cs" />
+    <Compile Include="Common\Interfaces\IParamMetadata.cs" />
+    <Compile Include="Common\Interfaces\IProcedureMetadata.cs" />
+    <Compile Include="Common\Interfaces\IProcedureRepository.cs" />
     <Compile Include="Common\RoutinesRepository.cs" />
+    <Compile Include="Models\CommonCondition.cs" />
+    <Compile Include="Models\ProcedureMetaData.cs" />
     <Compile Include="Presenter\Presenter.cs" />
     <Compile Include="View\AddArcForm.xaml.cs">
       <DependentUpon>AddArcForm.xaml</DependentUpon>
@@ -117,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddArcForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ParamBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

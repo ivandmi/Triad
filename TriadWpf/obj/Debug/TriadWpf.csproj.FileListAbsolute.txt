@@ -66,3 +66,5 @@ C:\Users\Иван\Documents\Repos\Triad\TriadWpf\bin\Debug\zh-Hant\System.Window
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\App.baml
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\AddArcForm.g.cs
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\AddArcForm.baml
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ParamBox.g.cs
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ParamBox.baml

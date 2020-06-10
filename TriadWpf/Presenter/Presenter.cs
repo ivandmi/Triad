@@ -1,4 +1,4 @@
-using TriadCore;
+﻿using TriadCore;
 using TriadWpf.Interfaces;
 using TriadWpf.GraphEventArgs;
 using TriadWpf.Common;
@@ -21,11 +21,15 @@ namespace TriadWpf.Presenter
         /// Модель
         /// </summary>
         Graph graph;
+        private List<ICondition> conditions;
+
         public AppPresenter(IMainView view)
         {
             mainView = view;
             graph = new Graph();
             routinesRepository = new RoutinesRepository();
+            conditions = new List<ICondition>();
+            
 
             mainView.AddVertex += MainView_AddVertex;
             mainView.RemoveVertex += MainView_RemoveVertex;
@@ -33,9 +37,18 @@ namespace TriadWpf.Presenter
             mainView.AddEdge += MainView_AddEdge;
             mainView.RemoveEdge += MainView_RemoveEdge;
 
+            mainView.AddProcedure += MainView_AddProcedure;
+
             mainView.AddPolusToNode += MainView_AddPolusToNode;
 
             mainView.SetNodeTypes(routinesRepository.RoutineMetadata);
+        }
+
+        private void MainView_AddProcedure(object sender, Common.GraphEventArgs.ProcedureEventArgs e)
+        {
+            IProcedure procedure = e.ProcedureMetadata.CreateProcedure();
+
+            throw new NotImplementedException();
         }
 
         private void MainView_AddPolusToNode(object sender, PolusEventArgs e)

@@ -1,4 +1,4 @@
-using GraphX.Common.Enums;
+﻿using GraphX.Common.Enums;
 using GraphX.Controls;
 using GraphX.Controls.Models;
 using GraphX.Logic.Algorithms.LayoutAlgorithms;
@@ -124,6 +124,7 @@ namespace TriadWpf
         public event EventHandler<EdgeEventArg> AddEdge;
         public event EventHandler<EdgeEventArg> RemoveEdge;
         public event EventHandler<PolusEventArgs> AddPolusToNode;
+        public event EventHandler<ProcedureEventArgs> AddProcedure;
 
         public IGraphViewManager GraphViewManager { get; private set; }
 
@@ -150,6 +151,11 @@ namespace TriadWpf
         private void OnAddPolusToNode(PolusEventArgs e)
         {
             AddPolusToNode?.Invoke(this, e);
+        }
+
+        private void OnAddProcedure(ProcedureEventArgs e)
+        {
+            AddProcedure?.Invoke(this, e);
         }
 
         private void BtnEditMode_Unchecked(object sender, RoutedEventArgs e)
