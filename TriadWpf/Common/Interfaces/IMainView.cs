@@ -35,6 +35,8 @@ namespace TriadWpf.Interfaces
         /// </summary>
         event EventHandler<PolusEventArgs> AddPolusToNode;
 
+        event EventHandler<VertexEventArgs> VertexSeleacted;
+
         event EventHandler<SimulationEventArgs> RunSimulation;
 
         /// <summary>
@@ -43,6 +45,8 @@ namespace TriadWpf.Interfaces
         IGraphViewManager GraphViewManager { get; }
 
         IProcedureView ProcedureView { get; }
+
+        IVertexPropertiesView VertexPropertiesView { get; }
 
         /// <summary>
         /// Отображает возможные для использования типы вершин, с определенными рутинами

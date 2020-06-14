@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using TriadCore;
 using TriadWpf.Common.Enums;
+using TriadWpf.Models;
 
 namespace TriadWpf.Common
 {
-    public struct RoutineViewItem
+    public class RoutineViewItem
     {
         public string Name { get; private set; }
         public RoutineType Type { get; private set; }
@@ -16,6 +17,7 @@ namespace TriadWpf.Common
             Type = type;
         }
     }
+
     class RoutinesRepository
     {
         public List<RoutineViewItem> RoutineMetadata { get; private set; }

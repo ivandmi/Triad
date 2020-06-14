@@ -4,7 +4,7 @@ using TriadWpf.Common.Interfaces;
 
 namespace TriadWpf.Models
 {
-    public struct ParamMetadata
+    public struct IPParamMetadata
     {
         public string Description { get; }
 
@@ -14,7 +14,7 @@ namespace TriadWpf.Models
 
         public SpyObjectType Type { get; }
 
-        public ParamMetadata(string description, string displayName, string name, SpyObjectType type)
+        public IPParamMetadata(string description, string displayName, string name, SpyObjectType type)
         {
             Description = description;
             DisplayName = displayName;

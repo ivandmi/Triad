@@ -10,7 +10,7 @@ namespace TriadWpf.Models
 
         public string Description => "Подсчет количества срабатываний полюса";
 
-        public IEnumerable<ParamMetadata> Params { get; }
+        public IEnumerable<IPParamMetadata> Params { get; }
 
         public IProcedure CreateProcedure()
         {
@@ -19,8 +19,8 @@ namespace TriadWpf.Models
 
         public ProcedureCount()
         {
-            Params = new List<ParamMetadata>() {
-                new ParamMetadata("Полюс", "Полюс", "Arg", SpyObjectType.Polus)
+            Params = new List<IPParamMetadata>() {
+                new IPParamMetadata("Полюс", "Полюс", "Arg", SpyObjectType.Polus)
             };
 
         }

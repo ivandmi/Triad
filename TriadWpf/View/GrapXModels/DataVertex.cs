@@ -1,19 +1,14 @@
-﻿using GraphX.Common.Enums;
-using GraphX.Common.Interfaces;
-using GraphX.Common.Models;
-using System;
-using System.Collections;
+﻿using GraphX.Common.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Input;
 using TriadCore;
-using TriadWpf.ViewModels;
+using TriadWpf.Common;
 
 namespace TriadWpf.View.GraphXModels
 {
     public class DataVertex : VertexBase, INotifyPropertyChanged
     {
-        public CoreName NodeName { get; private set; }
+        public CoreName NodeName { get; set; }
         public ObservableCollection<CoreName> Poluses { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;

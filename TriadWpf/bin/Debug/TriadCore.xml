@@ -2086,7 +2086,7 @@
             <summary>
             Инициализирует новый экземпляр класса MessageGenerator с интервалом отправки delay
             </summary>
-            <param name="delay">Интервал времени между отправкой сообщений</param>
+            <param name="Delay">Интервал времени между отправкой сообщений</param>
         </member>
         <member name="M:TriadCore.Tree.AddConnection(TriadCore.CoreName,TriadCore.CoreName,TriadCore.CoreName,TriadCore.CoreName)">
             <summary>

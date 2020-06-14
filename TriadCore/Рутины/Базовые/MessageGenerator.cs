@@ -6,15 +6,15 @@ namespace TriadCore
 {
     public class MessageGenerator : Routine
     {
-        public double Delay { get; set; }
+        private double Delay;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса MessageGenerator с интервалом отправки delay
         /// </summary>
-        /// <param name="delay">Интервал времени между отправкой сообщений</param>
-        public MessageGenerator(double delay)
+        /// <param name="Delay">Интервал времени между отправкой сообщений</param>
+        public MessageGenerator(double Delay)
         {
-            Delay = delay;
+            this.Delay = Delay;
         }
 
         public MessageGenerator()

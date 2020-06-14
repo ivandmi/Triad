@@ -114,7 +114,7 @@ namespace TriadWpf.View
             if(lb.SelectedItem is ProcedureBlueprint blueprint)
             {
                 blueprint.Name = txtProcName.Text;
-                Dictionary<ParamMetadata, string> dict = new Dictionary<ParamMetadata, string>();
+                Dictionary<IPParamMetadata, string> dict = new Dictionary<IPParamMetadata, string>();
                 var paramsData = cmbProcType.SelectedItem as IProcedureMetadata;
                 foreach(var paramBox in procParamsPanel.Children)
                 {

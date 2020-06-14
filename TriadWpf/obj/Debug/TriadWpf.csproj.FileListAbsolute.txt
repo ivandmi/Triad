@@ -72,3 +72,5 @@ C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ProceduresContro
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ProceduresControl.baml
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\SimilationResultView.g.cs
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\SimilationResultView.baml
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\VertexPropertiesView.g.cs
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\VertexPropertiesView.baml

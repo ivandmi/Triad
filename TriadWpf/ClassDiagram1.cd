@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TriadWpf.App" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.MainWindow" HideInheritanceLine="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAADAEAAoCAAFCAQIEABBgCAAATAAgJoAEgGAYQA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.323" />
+  </Class>
+  <Class Name="TriadWpf.Converters.BooleanAndConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Converters\BooleanAndConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.Common.GraphEventArgs.ChangeNameArgs" Collapsed="true">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Common\GraphEventArgs\ChangeNameArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Common.GraphEventArgs.ProcedureEventArgs" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\GraphEventArgs\ProcedureEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Common.GraphEventArgs.SimulationEventArgs" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\GraphEventArgs\SimulationEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Common.GraphEventArgs.UpdateParamValueArgs" Collapsed="true">
+    <Position X="4" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAgAAAAAAA=</HashCode>
+      <FileName>Common\GraphEventArgs\UpdateParamValueArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.GraphEventArgs.EdgeEventArg" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAQEAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\GraphEventArgs\EdgeEventArg.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.GraphEventArgs.PolusEventArgs" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAE=</HashCode>
+      <FileName>Common\GraphEventArgs\PolusEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.GraphEventArgs.VertexEventArgs">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Common\GraphEventArgs\VertexEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Common.ProcedureBuilder" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ProcedureBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Common.ProcedureRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ProcedureRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.Common.RoutineViewItem">
+    <Position X="15" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Common\RoutinesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Common.RoutinesRepository">
+    <Position X="17" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\RoutinesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.CommonCondition" Collapsed="true">
+    <Position X="9.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAEAAAAAAAAAQAAIAAAAAAACAAAQAA=</HashCode>
+      <FileName>Models\CommonCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.ProcedureBlueprint" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAIAAAAAQAgAAEAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\ProcedureBlueprint.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.Models.ProcedureCount" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Models\ProcedureMetaData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.Models.ProcedureResult" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAACBAAAAAAAA=</HashCode>
+      <FileName>Models\ProcedureResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.RoutineDataService" Collapsed="true">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RoutineDataService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.RoutineParamMetaData" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\RoutineParamMetaData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.RoutineParameter" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\RoutineParamMetaData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.SimulationResultsService" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABIAAAAAAAAACAAAAAAAAAAAAAAAAAAgAEAA=</HashCode>
+      <FileName>Models\SimulationResultsService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Models.SimulationService" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SimulationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Presenter.AppPresenter" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAQAEAAKEAgAgAAACAFAAIAIBAQBAEAAAAA=</HashCode>
+      <FileName>Presenters\Presenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Presenter.SimulationResultPresenter" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenters\SimulationResultPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.Presenters.VertexPropertiesPresenter" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAgAEAAAAAAAAAABAAAACAAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>Presenters\VertexPropertiesPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.ViewModels.ViewModelBase" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenters\ViewBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TriadWpf.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.View.AddArcForm" HideInheritanceLine="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAgBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AddArcForm.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.GraphViewManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAABAEAAAAAACAAAgAABAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\GraphViewManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.ParamBox" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\ParamBox.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.ProceduresControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAIBIAAAAAAIAAACAAgAAAAQAAAQEEAAAAA=</HashCode>
+      <FileName>View\ProceduresControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.SimilationResultView" HideInheritanceLine="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAQgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>View\SimilationResultView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.VertexPropertiesView" BaseTypeListCollapsed="true">
+    <Position X="9" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABEAAAAAAAAAAAAAAAAAAAAAAAQIBAAAEAAAEAAAAA=</HashCode>
+      <FileName>View\VertexPropertiesView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TriadWpf.View.GraphXModels.DataEdge" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAEAAEIAAAAAEAgAABAAAAAAAACAAAAAA=</HashCode>
+      <FileName>View\GrapXModels\DataEdge.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.GraphXModels.DataVertex" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAEEIAAAAAAAgAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>View\GrapXModels\DataVertex.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TriadWpf.View.GraphXModels.GraphAreaControl" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\GrapXModels\GraphAreaControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.View.GraphXModels.GraphExample" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\GrapXModels\GraphExample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriadWpf.View.GraphXModels.LogicCore" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\GrapXModels\LogicCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowcaseApp.WPF.Models.EditorObjectManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAACAAAACAAAgAAAAAQAAAAAADAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>View\GrapXModels\EditorObjectManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ShowcaseApp.WPF.Models.EdgeBlueprint" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAiAAQAAAAAAQAAAAAAAAAAAQAAEAAAAAAAA=</HashCode>
+      <FileName>View\GrapXModels\EditorObjectManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="19.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="TriadWpf.Common.GraphEventArgs.NodeParam" Collapsed="true">
+    <Position X="2.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAE=</HashCode>
+      <FileName>Common\GraphEventArgs\ProcedureEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TriadWpf.Models.IPParamMetadata" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAgAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\IPParamMetadata.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="TriadWpf.Common.Interfaces.ICommonCondition">
+    <Position X="2.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces\ICommonCondition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Common.Interfaces.IProcedureMetadata" Collapsed="true">
+    <Position X="7.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Common\Interfaces\IProcedureMetadata.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Common.Interfaces.IProcedureRepository" Collapsed="true">
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces\IProcedureRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Common.Interfaces.IProcedureView" Collapsed="true">
+    <Position X="9.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAIBAAAAAAAIAAACAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Common\Interfaces\IProcedureView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Common.Interfaces.IResultView" Collapsed="true">
+    <Position X="11" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces\IResultView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Common.Interfaces.IVertexPropertiesView" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Common\Interfaces\IVertexPropertiesView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Interfaces.IGraphViewManager">
+    <Position X="11.25" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAABAAAAAAAACAAAgAABAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Interfaces\IGraphViewManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TriadWpf.Interfaces.IMainView">
+    <Position X="9.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAIAAAACAQAAAABgCAAASAAgAAAAACAAAA=</HashCode>
+      <FileName>Common\Interfaces\IMainView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TriadWpf.Common.Enums.RoutineType" Collapsed="true">
+    <Position X="2.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Common\Enums\RoutineType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ShowcaseApp.WPF.Models.EditorOperationMode" Collapsed="true">
+    <Position X="0.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAQAAAAAA=</HashCode>
+      <FileName>View\GrapXModels\EditorOperationMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

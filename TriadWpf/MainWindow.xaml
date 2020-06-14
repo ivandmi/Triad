@@ -53,7 +53,10 @@
                     <vies:ProceduresControl x:Name="procedureView"/>
                 </Expander>
                 <Expander Header="Свойства вершины">
-                    
+                    <StackPanel Orientation="Vertical" Name="routineParam">
+                        <vies:VertexPropertiesView x:Name="vertexPropertiesView"/>
+                    </StackPanel>
+
                 </Expander>
             </StackPanel>
         </Border>

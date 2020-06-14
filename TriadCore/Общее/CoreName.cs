@@ -4,73 +4,73 @@ using System.Collections.ObjectModel;
 using System.Text;
 
 namespace TriadCore
-    {
+{
     /// <summary>
     /// Имя для идентификации сущностей ядра
     /// </summary>
     public class CoreName : IComparable
-        {
+    {
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param polusName="BaseName">Имя массива</param>
         /// <param polusName="Index">Индекс в массиве</param>
-        public CoreName( string baseName, params int[] indexList )
-            {
-            if ( baseName == null )
-                throw new ArgumentNullException( "Пустое базовое имя" );
+        public CoreName(string baseName, params int[] indexList)
+        {
+            if (baseName == null)
+                throw new ArgumentNullException("Пустое базовое имя");
 
             this.baseName = baseName;
-            this.indexList = new List<int>( indexList );
-            }
+            this.indexList = new List<int>(indexList);
+        }
 
 
         /// <summary>
         /// Проверка на идексированное имя
         /// </summary>
         public bool IsIndexed
-            {
+        {
             get
-                {
-                return ( this.indexList.Count != 0 );
-                }
+            {
+                return (this.indexList.Count != 0);
             }
+        }
 
 
         /// <summary>
         /// Базовое имя
         /// </summary>
         public string BaseName
-            {
+        {
             get
-                {
+            {
                 return baseName;
-                }
             }
+        }
 
 
         /// <summary>
         /// Индексы
         /// </summary>
         public ReadOnlyCollection<int> Indices
-            {
+        {
             get
-                {
+            {
                 return this.indexList.AsReadOnly();
-                }
             }
+        }
 
 
         /// <summary>
         /// Массив индексов
         /// </summary>
         public int[] IndexArray
-            {
+        {
             get
-                {
+            {
                 return indexList.ToArray();
-                }
             }
+        }
 
 
         /// <summary>
@@ -78,23 +78,23 @@ namespace TriadCore
         /// </summary>
         /// <returns></returns>
         public override string ToString()
+        {
+            StringBuilder result = new StringBuilder(BaseName);
+            if (indexList.Count != 0)
             {
-            StringBuilder result = new StringBuilder( BaseName );
-            if ( indexList.Count != 0 )
-                {
-                result.Append( "[" );
+                result.Append("[");
 
-                for ( int index = 0 ; index < this.indexList.Count ; index++ )
-                    {
-                    result.Append( indexList[ index ].ToString() );
-                    if ( index != this.indexList.Count - 1 )
-                        result.Append( "," );
-                    }
-                result.Append( "]" );
+                for (int index = 0; index < this.indexList.Count; index++)
+                {
+                    result.Append(indexList[index].ToString());
+                    if (index != this.indexList.Count - 1)
+                        result.Append(",");
                 }
+                result.Append("]");
+            }
 
             return result.ToString();
-            }
+        }
 
 
         /// <summary>
@@ -102,34 +102,56 @@ namespace TriadCore
         /// </summary>
         /// <param name="obj">Другое имя</param>
         /// <returns></returns>
-        public override bool Equals( object obj )
-            {
-            if ( obj == null )
-                throw new ArgumentNullException( "Передан пустой объект" );
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                throw new ArgumentNullException("Передан пустой объект");
 
             CoreName otherName = obj as CoreName;
 
             //Если передано было не имя
-            if ( otherName == null )
+            if (otherName == null)
                 return false;
 
             //Если базовые имена не совпадают
-            if ( this.baseName != otherName.baseName )
+            if (this.baseName != otherName.baseName)
                 return false;
             else
-                {
+            {
                 //Если размерности не совпадают
-                if ( this.indexList.Count != otherName.indexList.Count )
+                if (this.indexList.Count != otherName.indexList.Count)
                     return false;
 
                 //Проверяем совпадение всех индексов
-                for ( int index = 0; index < this.indexList.Count; index++ )
-                    if ( this.indexList[ index ] != otherName.indexList[ index ] )
+                for (int index = 0; index < this.indexList.Count; index++)
+                    if (this.indexList[index] != otherName.indexList[index])
                         return false;
 
                 return true;
-                }
             }
+        }
+
+        //public static bool operator ==(CoreName name1, CoreName name2)
+        //{
+        //    if (Object.ReferenceEquals(name1, null))
+        //    {
+        //        if (Object.ReferenceEquals(name2, null))
+        //        {
+        //            // null == null = true.
+        //            return true;
+        //        }
+
+        //        // Only the left side is null.
+        //        return false;
+        //    }
+        //    // Equals handles case of null on right side.
+        //    return name1.Equals(name2);
+        //} 
+
+        //public static bool operator !=(CoreName name1, CoreName name2)
+        //{
+        //    return !(name1 == name2);
+        //}
 
 
         /// <summary>
@@ -137,19 +159,19 @@ namespace TriadCore
         /// </summary>
         /// <param name="coreNameRange">Диапазон имен</param>
         /// <returns></returns>
-        public bool Equals( CoreNameRange coreNameRange )
-            {
-            if ( coreNameRange == null )
-                throw new ArgumentNullException( "coreNameRange" );
+        public bool Equals(CoreNameRange coreNameRange)
+        {
+            if (coreNameRange == null)
+                throw new ArgumentNullException("coreNameRange");
 
             IEnumerator<CoreName> enumerator = coreNameRange.GetEnumerator();
-            while ( enumerator.MoveNext() )
-                if ( this.Equals( enumerator.Current ) )
-                    {
+            while (enumerator.MoveNext())
+                if (this.Equals(enumerator.Current))
+                {
                     return true;
-                    }
+                }
             return false;
-            }
+        }
 
 
 
@@ -159,26 +181,26 @@ namespace TriadCore
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public int CompareTo( object obj )
-            {
+        public int CompareTo(object obj)
+        {
             CoreName otherName = obj as CoreName;
 
-            if ( otherName != null )
-                {
-                if ( this.baseName != otherName.baseName )
-                    return this.baseName.CompareTo( otherName.baseName );
+            if (otherName != null)
+            {
+                if (this.baseName != otherName.baseName)
+                    return this.baseName.CompareTo(otherName.baseName);
                 else
-                    {
-                    for ( int index = 0 ; index < this.indexList.Count && index < otherName.indexList.Count ; index++ )
-                        if ( this.indexList[ index ] != otherName.indexList[ index ] )
-                            return this.indexList[ index ].CompareTo( otherName.indexList[ index ] );
+                {
+                    for (int index = 0; index < this.indexList.Count && index < otherName.indexList.Count; index++)
+                        if (this.indexList[index] != otherName.indexList[index])
+                            return this.indexList[index].CompareTo(otherName.indexList[index]);
 
-                    return this.indexList.Count.CompareTo( otherName.indexList.Count );
-                    }
+                    return this.indexList.Count.CompareTo(otherName.indexList.Count);
                 }
+            }
             else
                 return -1;
-            }
+        }
 
 
         /// <summary>
@@ -186,15 +208,15 @@ namespace TriadCore
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()
-            {
+        {
             int hashNameCode = this.baseName.GetHashCode();
 
             int indexHashCode = 0;
-            foreach ( int index in this.indexList )
+            foreach (int index in this.indexList)
                 indexHashCode ^= index.GetHashCode();
 
             return hashNameCode ^ indexHashCode;
-            }
+        }
 
 
         /// <summary>
@@ -205,5 +227,5 @@ namespace TriadCore
         /// Индексы
         /// </summary>
         private List<int> indexList = new List<int>();
-        }
     }
+}

@@ -16,6 +16,6 @@ namespace TriadWpf.Common.Interfaces
         IProcedure CreateProcedure();
         string Name { get; }
         string Description { get; }
-        IEnumerable<ParamMetadata> Params { get; }
+        IEnumerable<IPParamMetadata> Params { get; }
     }
 }

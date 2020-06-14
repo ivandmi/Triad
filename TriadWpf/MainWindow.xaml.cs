@@ -27,7 +27,7 @@ namespace TriadWpf
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IMainView
+    public partial class MainWindow : IMainView
     {
         public MainWindow()
         {
@@ -76,6 +76,7 @@ namespace TriadWpf
             gArea.VertexClicked += GArea_VertexClicked;
             GraphViewManager = new GraphViewManager(gArea);
             ProcedureView = procedureView;
+            VertexPropertiesView = vertexPropertiesView;
             btnEditMode.Checked += BtnEditMode_Checked;
             btnEditMode.Unchecked += BtnEditMode_Unchecked;
             _editorManager = new EditorObjectManager(gArea, zoomctrl);
@@ -130,10 +131,18 @@ namespace TriadWpf
         public event EventHandler<PolusEventArgs> AddPolusToNode;
         public event EventHandler<ProcedureEventArgs> AddProcedure;
         public event EventHandler<SimulationEventArgs> RunSimulation;
+        public event EventHandler<VertexEventArgs> VertexSeleacted;
 
         public IGraphViewManager GraphViewManager { get; private set; }
 
         public IProcedureView ProcedureView { get; }
+
+        public IVertexPropertiesView VertexPropertiesView { get; }
+
+        private void OnVertexSeleacted(VertexEventArgs e)
+        {
+            VertexSeleacted?.Invoke(this, e);
+        }
 
         private void OnAddVertex(VertexEventArgs e)
         {
@@ -202,7 +211,7 @@ namespace TriadWpf
 
         private void CreateEdgeControl(VertexControl vc)
         {
-            if((vc.Vertex as DataVertex).Poluses.Count == 0)
+            if ((vc.Vertex as DataVertex).Poluses.Count == 0)
             {
                 MessageBox.Show("В данной вершине нет полюса. Сперва добавьте полюс в вершину.");
                 return;
@@ -215,7 +224,7 @@ namespace TriadWpf
                 return;
             }
             if (_ecFrom == vc) return;
-            
+
 
             AddArcForm addArcForm = new AddArcForm((_ecFrom.Vertex as DataVertex).Poluses, (vc.Vertex as DataVertex).Poluses);
             if (addArcForm.ShowDialog() == true)
@@ -235,14 +244,15 @@ namespace TriadWpf
 
         void graphArea_VertexSelected(object sender, VertexSelectedEventArgs args)
         {
-            
+
             if (args.MouseArgs.RightButton == MouseButtonState.Pressed)
             {
                 ContextMenu contextMenu = new ContextMenu();
                 args.VertexControl.ContextMenu = contextMenu;
                 var mi = new MenuItem();
                 mi.Header = "Добавить полюс";
-                mi.Click += (s, e) => {
+                mi.Click += (s, e) =>
+                {
                     // Этот кал бы вынести в xml и использовать здесь, задавая только итемы
                     Popup popup = new Popup();
                     StackPanel panel = new StackPanel();
@@ -253,7 +263,8 @@ namespace TriadWpf
                     textBox.Width = 150;
                     Button btn = new Button();
                     btn.Content = "Ok";
-                    btn.Click += (ss, ee) => { 
+                    btn.Click += (ss, ee) =>
+                    {
                         popup.IsOpen = false;
                         CoreName name = (args.VertexControl.Vertex as DataVertex).NodeName;
                         OnAddPolusToNode(new PolusEventArgs(new CoreName(textBox.Text), name));
@@ -261,7 +272,7 @@ namespace TriadWpf
                     panel.Orientation = Orientation.Horizontal;
                     panel.Margin = new Thickness(5);
                     panel.Background = new SolidColorBrush(Colors.BlueViolet);
-                    
+
                     panel.Children.Add(text);
                     panel.Children.Add(textBox);
                     panel.Children.Add(btn);
@@ -272,6 +283,11 @@ namespace TriadWpf
                 };
                 contextMenu.Items.Add(mi);
                 contextMenu.IsOpen = true;
+            }
+
+            if (args.MouseArgs.LeftButton == MouseButtonState.Pressed)
+            {
+                OnVertexSeleacted(new VertexEventArgs((args.VertexControl.Vertex as DataVertex).NodeName));
             }
         }
 

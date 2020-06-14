@@ -29,7 +29,7 @@ namespace TriadWpf.View
 
         public void AddPolusToVertex(CoreName nodeName, CoreName polusName)
         {
-            graphArea.VertexList.FirstOrDefault(x => x.Key.NodeName == nodeName).Key.Poluses.Add(polusName);
+            graphArea.VertexList.FirstOrDefault(x => x.Key.NodeName.Equals(nodeName)).Key.Poluses.Add(polusName);
         }
 
         public void AddVertex(CoreName node)
@@ -46,6 +46,12 @@ namespace TriadWpf.View
             var vc = new VertexControl(vd);
             vc.SetPosition(point);
             graphArea.AddVertexAndData(vd, vc);
+        }
+
+        public void ChangeVertexName(CoreName oldName, CoreName newName)
+        {
+            var vertex = graphArea.VertexList.FirstOrDefault(x => x.Key.NodeName.Equals(oldName)).Key;
+            vertex.NodeName = newName;
         }
 
         public void RemoveEdge(CoreName from, CoreName to)

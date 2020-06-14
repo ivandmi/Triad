@@ -207,6 +207,24 @@ namespace TriadCore
             }
         }
 
+        public void RenameNode(CoreName oldName, CoreName newName)
+        {
+            if(oldName == null)
+                throw new ArgumentNullException("ѕустое старое им€ вершины");
+
+            if (newName == null)
+                throw new ArgumentNullException("ѕустое новое им€ вершины");
+
+            Node oldNode = this[oldName];
+            Node newNode = new Node(newName);
+
+            newNode.Add(oldNode);
+            newNode.NodeRoutine = oldNode.NodeRoutine;
+
+            nodeList.Remove(oldName);
+            nodeList.Add(newName, newNode);
+        }
+
 
         /// <summary>
         /// ќбъ€вить полюс во всех вершинах

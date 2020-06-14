@@ -2,15 +2,11 @@
 using TriadWpf.Interfaces;
 using TriadWpf.GraphEventArgs;
 using TriadWpf.Common;
-using GraphX.Common;
-using System.Windows;
 using System;
-using System.Collections;
-using System.Windows.Documents;
 using System.Collections.Generic;
-using System.Linq;
 using TriadWpf.Models;
 using TriadWpf.Common.GraphEventArgs;
+using TriadWpf.Presenters;
 
 namespace TriadWpf.Presenter
 {
@@ -21,12 +17,23 @@ namespace TriadWpf.Presenter
 
         ProcedureRepository procedureRepository;
 
+        VertexPropertiesPresenter vertexPropertiesPresenter;
+
         /// <summary>
         /// Модель
         /// </summary>
         Graph graph;
+
+        /// <summary>
+        /// Условия моделирования
+        /// </summary>
         private Dictionary<string ,ICondition> conditions;
 
+
+        /// <summary>
+        /// Условие моделирования для хранения накладываемыех процедур.
+        /// Потому что процедуры должны бвть вложены в условия моделирования.
+        /// </summary>
         private CommonCondition commonCondition;
 
         public AppPresenter(IMainView view)
@@ -38,6 +45,8 @@ namespace TriadWpf.Presenter
             conditions = new Dictionary<string, ICondition>();
             commonCondition = new CommonCondition();
 
+            vertexPropertiesPresenter = new VertexPropertiesPresenter(mainView.VertexPropertiesView, view.GraphViewManager, graph);
+
             // События, связанные с отображением графа
             mainView.AddVertex += MainView_AddVertex;
             mainView.RemoveVertex += MainView_RemoveVertex;
@@ -46,6 +55,8 @@ namespace TriadWpf.Presenter
             mainView.RemoveEdge += MainView_RemoveEdge;
 
             mainView.AddPolusToNode += MainView_AddPolusToNode;
+
+            mainView.VertexSeleacted += MainView_VertexSeleacted;
 
             // Задаем типы рутин и процедур
             mainView.SetNodeTypes(routinesRepository.RoutineMetadata);
@@ -57,6 +68,11 @@ namespace TriadWpf.Presenter
 
             //Событие запуска симуляции
             mainView.RunSimulation += MainView_RunSimulation;
+        }
+
+        private void MainView_VertexSeleacted(object sender, VertexEventArgs e)
+        {
+            vertexPropertiesPresenter.SetVertex(e.Name);
         }
 
         private void MainView_RunSimulation(object sender, SimulationEventArgs e)
@@ -83,9 +99,9 @@ namespace TriadWpf.Presenter
             commonCondition.AddProcedure(e.ProcedureBlueprint.Name ,procedure);
         }
 
-        private Dictionary<ParamMetadata, NodeParam> CreateProcedureParamDict(Dictionary<ParamMetadata, string> dict)
+        private Dictionary<IPParamMetadata, NodeParam> CreateProcedureParamDict(Dictionary<IPParamMetadata, string> dict)
         {
-            Dictionary<ParamMetadata, NodeParam> res = new Dictionary<ParamMetadata, NodeParam>();
+            Dictionary<IPParamMetadata, NodeParam> res = new Dictionary<IPParamMetadata, NodeParam>();
             foreach(var pair in dict)
             {
                 var splits = pair.Value.Split('.');
@@ -95,7 +111,7 @@ namespace TriadWpf.Presenter
             return res;
         }
 
-        private void ProcedureView_CreateProcedureBlueprint(object sender, Common.GraphEventArgs.ProcedureEventArgs e)
+        private void ProcedureView_CreateProcedureBlueprint(object sender, ProcedureEventArgs e)
         {
             ProcedureBlueprint blueprint = new ProcedureBlueprint();
             blueprint.Name = "Новая процедура " + commonCondition.ProceduresCount.ToString();

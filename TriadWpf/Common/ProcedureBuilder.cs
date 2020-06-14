@@ -12,7 +12,7 @@ namespace TriadWpf.Common
 {
     class ProcedureBuilder
     {
-        public void AddParamsToProcudure(Graph graph, IProcedure procedure, IDictionary<ParamMetadata, NodeParam> procedureParams)
+        public void AddParamsToProcudure(Graph graph, IProcedure procedure, IDictionary<IPParamMetadata, NodeParam> procedureParams)
         {
             Type type = procedure.GetType();
 

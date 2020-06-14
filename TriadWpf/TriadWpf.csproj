@@ -79,18 +79,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GraphEventArgs\ChangeNameArgs.cs" />
     <Compile Include="Common\GraphEventArgs\ProcedureEventArgs.cs" />
     <Compile Include="Common\GraphEventArgs\SimulationEventArgs.cs" />
+    <Compile Include="Common\GraphEventArgs\UpdateParamValueArgs.cs" />
     <Compile Include="Common\Interfaces\IProcedureView.cs" />
     <Compile Include="Common\Interfaces\IResultView.cs" />
+    <Compile Include="Common\Interfaces\IVertexPropertiesView.cs" />
     <Compile Include="Common\ProcedureBuilder.cs" />
     <Compile Include="Common\ProcedureRepository.cs" />
-    <Compile Include="Models\ParamMetadata.cs" />
+    <Compile Include="Models\IPParamMetadata.cs" />
     <Compile Include="Models\ProcedureBlueprint.cs" />
     <Compile Include="Models\ProcedureResult.cs" />
+    <Compile Include="Models\RoutineDataService.cs" />
+    <Compile Include="Models\RoutineParamMetaData.cs" />
     <Compile Include="Models\SimulationResultsService.cs" />
     <Compile Include="Models\SimulationService.cs" />
-    <Compile Include="Presenter\SimulationResultPresenter.cs" />
+    <Compile Include="Presenters\SimulationResultPresenter.cs" />
+    <Compile Include="Presenters\VertexPropertiesPresenter.cs" />
     <Compile Include="View\ParamBox.xaml.cs">
       <DependentUpon>ParamBox.xaml</DependentUpon>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <Compile Include="View\SimilationResultView.xaml.cs">
       <DependentUpon>SimilationResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VertexPropertiesView.xaml.cs">
+      <DependentUpon>VertexPropertiesView.xaml</DependentUpon>
     </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,7 +127,7 @@
     <Compile Include="Common\RoutinesRepository.cs" />
     <Compile Include="Models\CommonCondition.cs" />
     <Compile Include="Models\ProcedureMetaData.cs" />
-    <Compile Include="Presenter\Presenter.cs" />
+    <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="View\AddArcForm.xaml.cs">
       <DependentUpon>AddArcForm.xaml</DependentUpon>
     </Compile>
@@ -128,7 +137,7 @@
     <Compile Include="View\GrapXModels\GraphAreaControl.cs" />
     <Compile Include="View\GrapXModels\GraphExample.cs" />
     <Compile Include="View\GrapXModels\LogicCore.cs" />
-    <Compile Include="Presenter\ViewBase.cs" />
+    <Compile Include="Presenters\ViewBase.cs" />
     <Compile Include="View\GraphViewManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SimilationResultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VertexPropertiesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

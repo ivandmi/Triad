@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using TriadCore;
 
 namespace TriadWpf.Interfaces
@@ -16,5 +11,7 @@ namespace TriadWpf.Interfaces
         void AddEdge(CoreName from, CoreName to);
         void RemoveEdge(CoreName from, CoreName to);
         void AddPolusToVertex(CoreName nodeName, CoreName polusName);
+
+        void ChangeVertexName(CoreName oldName, CoreName newName);
     }
 }

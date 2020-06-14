@@ -22,7 +22,7 @@ namespace TriadWpf.Models
         /// <summary>
         /// Соответствие параметров процедры параметром из модели
         /// </summary>
-        public Dictionary<ParamMetadata, string> ModelParamByProcParam { get; set; }
+        public Dictionary<IPParamMetadata, string> ModelParamByProcParam { get; set; }
 
         /// <summary>
         /// Имя, которое дает пользователь
@@ -41,7 +41,7 @@ namespace TriadWpf.Models
 
         public ProcedureBlueprint()
         {
-            ModelParamByProcParam = new Dictionary<ParamMetadata, string>();
+            ModelParamByProcParam = new Dictionary<IPParamMetadata, string>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
