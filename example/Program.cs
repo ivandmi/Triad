@@ -658,6 +658,10 @@ namespace example
             //IC2.RegisterSpyObjects(bad, Defence);
 
             //m.DoSimulate(IC2);
+            List<double> s = new List<double>();
+            s.Add(12);
+            s.Add(1111);
+            Console.WriteLine(s.ToArray().ToString());
             D d = new D();
             d.Build();
         }

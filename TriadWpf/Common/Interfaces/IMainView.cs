@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using TriadWpf.Common;
 using TriadWpf.Common.GraphEventArgs;
+using TriadWpf.Common.Interfaces;
 using TriadWpf.GraphEventArgs;
+using TriadWpf.Models;
 
 namespace TriadWpf.Interfaces
 {
@@ -33,17 +35,23 @@ namespace TriadWpf.Interfaces
         /// </summary>
         event EventHandler<PolusEventArgs> AddPolusToNode;
 
-        event EventHandler<ProcedureEventArgs> AddProcedure;
+        event EventHandler<SimulationEventArgs> RunSimulation;
 
         /// <summary>
         /// Предоставляет управление над вершинами на форме
         /// </summary>
         IGraphViewManager GraphViewManager { get; }
 
+        IProcedureView ProcedureView { get; }
+
         /// <summary>
         /// Отображает возможные для использования типы вершин, с определенными рутинами
         /// </summary>
         /// <param name="items">Список вершин с определенным типом вершин</param>
         void SetNodeTypes(IEnumerable<RoutineViewItem> items);
+
+        void ShowError(string error);
+
+        void ShowResults(List<ProcedureResult> results);
     }
 }

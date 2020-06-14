@@ -68,3 +68,7 @@ C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\AddArcForm.g.cs
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\AddArcForm.baml
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ParamBox.g.cs
 C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ParamBox.baml
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ProceduresControl.g.cs
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\ProceduresControl.baml
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\SimilationResultView.g.cs
+C:\Users\Иван\Documents\Repos\Triad\TriadWpf\obj\Debug\View\SimilationResultView.baml

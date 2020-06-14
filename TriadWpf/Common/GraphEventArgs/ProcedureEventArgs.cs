@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TriadCore;
 using TriadWpf.Common.Interfaces;
+using TriadWpf.Models;
 
 namespace TriadWpf.Common.GraphEventArgs
 {
@@ -21,21 +22,14 @@ namespace TriadWpf.Common.GraphEventArgs
     }
     public class ProcedureEventArgs : EventArgs
     {
-        public IProcedureMetadata ProcedureMetadata { get; }
+        // TODO: передавать не блюпринт, а поля блюпринта
+        public ProcedureBlueprint ProcedureBlueprint { get; }
 
-        /// <summary>
-        /// Key - параметр процедуры, 
-        /// </summary>
-        public Dictionary<string, NodeParam> Params { get; }
-        public string ProcedureName { get; }
+        public ProcedureEventArgs() { }
 
-        public ProcedureEventArgs(IProcedureMetadata procData, Dictionary<string, NodeParam> procParams, string name)
+        public ProcedureEventArgs(ProcedureBlueprint blueprint)
         {
-            ProcedureMetadata = procData;
-            Params = procParams;
-            ProcedureName = name;
+            ProcedureBlueprint = blueprint;
         }
-
-
     }
 }

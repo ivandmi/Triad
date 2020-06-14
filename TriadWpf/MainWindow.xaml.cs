@@ -18,6 +18,9 @@ using TriadWpf.View.GraphXModels;
 using TriadWpf.Common;
 using System.Collections.Generic;
 using TriadWpf.Common.GraphEventArgs;
+using TriadWpf.Common.Interfaces;
+using TriadWpf.Models;
+using TriadWpf.Presenter;
 
 namespace TriadWpf
 {
@@ -72,6 +75,7 @@ namespace TriadWpf
             gArea.VertexSelected += graphArea_VertexSelected;
             gArea.VertexClicked += GArea_VertexClicked;
             GraphViewManager = new GraphViewManager(gArea);
+            ProcedureView = procedureView;
             btnEditMode.Checked += BtnEditMode_Checked;
             btnEditMode.Unchecked += BtnEditMode_Unchecked;
             _editorManager = new EditorObjectManager(gArea, zoomctrl);
@@ -86,7 +90,7 @@ namespace TriadWpf
             if (sender is ListBoxItem)
             {
                 ListBoxItem draggedItem = sender as ListBoxItem;
-                DragDrop.DoDragDrop(draggedItem, draggedItem.Content, DragDropEffects.Move);
+                DragDrop.DoDragDrop(draggedItem, draggedItem.DataContext, DragDropEffects.Move);
                 draggedItem.IsSelected = true;
             }
         }
@@ -95,7 +99,7 @@ namespace TriadWpf
         {
             //how to get dragged data by its type
             var pos = zoomctrl.TranslatePoint(e.GetPosition(zoomctrl), gArea);
-            OnAddVertex(new VertexEventArgs(pos));
+            OnAddVertex(new VertexEventArgs((RoutineViewItem)e.Data.GetData(typeof(RoutineViewItem)), pos));
         }
 
         private void GArea_VertexClicked(object sender, VertexClickedEventArgs args)
@@ -125,8 +129,11 @@ namespace TriadWpf
         public event EventHandler<EdgeEventArg> RemoveEdge;
         public event EventHandler<PolusEventArgs> AddPolusToNode;
         public event EventHandler<ProcedureEventArgs> AddProcedure;
+        public event EventHandler<SimulationEventArgs> RunSimulation;
 
         public IGraphViewManager GraphViewManager { get; private set; }
+
+        public IProcedureView ProcedureView { get; }
 
         private void OnAddVertex(VertexEventArgs e)
         {
@@ -156,6 +163,11 @@ namespace TriadWpf
         private void OnAddProcedure(ProcedureEventArgs e)
         {
             AddProcedure?.Invoke(this, e);
+        }
+
+        private void OnRunSimulate(SimulationEventArgs e)
+        {
+            RunSimulation?.Invoke(this, e);
         }
 
         private void BtnEditMode_Unchecked(object sender, RoutedEventArgs e)
@@ -294,9 +306,16 @@ namespace TriadWpf
             vertexView.DisplayMemberPath = "Name";
         }
 
-        private void Add_Procedure_Click(object sender, RoutedEventArgs e)
+        public void ShowError(string error)
         {
-            procedureWin.Visibility = Visibility.Visible;
+            txtError.Text += error + "\n";
+        }
+
+        public void ShowResults(List<ProcedureResult> results)
+        {
+            SimilationResultView view = new SimilationResultView();
+            SimulationResultPresenter presenter = new SimulationResultPresenter(view, results);
+            view.Show();
         }
     }
 }

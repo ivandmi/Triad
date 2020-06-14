@@ -1,0 +1,29 @@
+﻿<Window x:Class="TriadWpf.View.SimilationResultView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TriadWpf.View"
+        mc:Ignorable="d"
+        Title="Результаты моделирования" Height="450" Width="800">
+    <Grid>
+        <TabControl x:Name="tabControl">
+            <TabItem Header="Логи">
+                <TabItem.Content>
+                    <DataGrid x:Name="logTable"/>
+                </TabItem.Content>
+            </TabItem>
+
+            <TabItem Header="Информационные процедуры">
+                <TabItem.Content>
+                    <DataGrid x:Name="commonProcResults">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Имя процедуры" IsReadOnly="True" Binding="{Binding Path=Name}" Width="auto"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Результат" IsReadOnly="True"  Binding="{Binding Path=Result}" Width="auto"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

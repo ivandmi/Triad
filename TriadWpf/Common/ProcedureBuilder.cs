@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TriadCore;
 using TriadWpf.Common.GraphEventArgs;
+using TriadWpf.Common.Interfaces;
+using TriadWpf.Models;
 
 namespace TriadWpf.Common
 {
     class ProcedureBuilder
     {
-        void AddParamsToProcudure(Graph graph, IProcedure procedure, IDictionary<string,NodeParam> procedureParams)
+        public void AddParamsToProcudure(Graph graph, IProcedure procedure, IDictionary<ParamMetadata, NodeParam> procedureParams)
         {
             Type type = procedure.GetType();
 
@@ -24,19 +26,18 @@ namespace TriadWpf.Common
             List<object> parameters = new List<object>();
             foreach(var param in method.GetParameters())
             {
-                NodeParam nodeParam;
-                if (procedureParams.TryGetValue(param.Name, out nodeParam))
+                NodeParam node;
+                var pair = procedureParams.FirstOrDefault(x => x.Key.Name == param.Name);
+                if (pair.Value.NodeName != null)
                 {
-                    //
-                    // Надо придумать откуда я это извлекаю
-                    //
-                    SpyObjectType spyType = SpyObjectType.Var;
-                    SpyObject spyObject = graph[nodeParam.NodeName].CreateSpyObject(nodeParam.ParamName, spyType);
+                    SpyObjectType spyType = pair.Key.Type;
+                    node = pair.Value;
+                    SpyObject spyObject = graph[node.NodeName].CreateSpyObject(node.ParamName, spyType);
                     parameters.Add(spyObject);
                 }
                 else
                 {
-                    // Не для всех параметров нашли параметры
+                    // Не для всех параметров нашли соответствие
                 }
                 
             }

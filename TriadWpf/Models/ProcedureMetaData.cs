@@ -1,13 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using TriadCore;
+using TriadWpf.Common.Interfaces;
 
 namespace TriadWpf.Models
 {
-    class ProcedureMetaData
+    class ProcedureCount : IProcedureMetadata
     {
-        public string Name { get; }
+        public string Name => "Счетчик";
+
+        public string Description => "Подсчет количества срабатываний полюса";
+
+        public IEnumerable<ParamMetadata> Params { get; }
+
+        public IProcedure CreateProcedure()
+        {
+            return new IPCount();
+        }
+
+        public ProcedureCount()
+        {
+            Params = new List<ParamMetadata>() {
+                new ParamMetadata("Полюс", "Полюс", "Arg", SpyObjectType.Polus)
+            };
+
+        }
     }
 }

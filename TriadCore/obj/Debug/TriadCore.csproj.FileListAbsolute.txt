@@ -23,3 +23,4 @@ C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.csproj.Gen
 C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.csproj.CoreCompileInputs.cache
 C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.dll
 C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.pdb
+C:\Users\Иван\Documents\Repos\Triad\TriadCore\obj\Debug\TriadCore.csprojAssemblyReference.cache

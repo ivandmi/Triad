@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TriadCore;
 
 namespace TriadWpf.Common.Interfaces
 {
-    public interface IParamMetadata
-    {
-        string Description { get; }
-        string Name { get; }
-    }
+    //public interface ParamMetadata
+    //{
+    //    string Description { get; }
+    //    string Name { get; }
+    //    SpyObjectType Type { get; }
+    //}
 }

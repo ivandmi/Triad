@@ -80,9 +80,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\GraphEventArgs\ProcedureEventArgs.cs" />
+    <Compile Include="Common\GraphEventArgs\SimulationEventArgs.cs" />
+    <Compile Include="Common\Interfaces\IProcedureView.cs" />
+    <Compile Include="Common\Interfaces\IResultView.cs" />
     <Compile Include="Common\ProcedureBuilder.cs" />
+    <Compile Include="Common\ProcedureRepository.cs" />
+    <Compile Include="Models\ParamMetadata.cs" />
+    <Compile Include="Models\ProcedureBlueprint.cs" />
+    <Compile Include="Models\ProcedureResult.cs" />
+    <Compile Include="Models\SimulationResultsService.cs" />
+    <Compile Include="Models\SimulationService.cs" />
+    <Compile Include="Presenter\SimulationResultPresenter.cs" />
     <Compile Include="View\ParamBox.xaml.cs">
       <DependentUpon>ParamBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProceduresControl.xaml.cs">
+      <DependentUpon>ProceduresControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SimilationResultView.xaml.cs">
+      <DependentUpon>SimilationResultView.xaml</DependentUpon>
     </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +148,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ParamBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProceduresControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SimilationResultView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

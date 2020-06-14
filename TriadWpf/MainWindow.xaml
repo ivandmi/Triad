@@ -27,9 +27,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <ListBox Grid.Row="1" Grid.Column="0" x:Name="vertexView" Margin="5">
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" x:Name="vertexView" Margin="5">
             <ListBox.ItemContainerStyle>
                 <Style>
                     <Setter Property="ListBoxItem.AllowDrop" Value="True"/>
@@ -46,42 +47,13 @@
             </graphxctrl:ZoomControl>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="2" Margin="5"  BorderBrush="Black" BorderThickness="1">
+        <Border Grid.Row="1" Grid.Column="2" Margin="5" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1">
             <StackPanel Orientation="Vertical">
                 <Expander Header="Информационные процедуры">
-                    <StackPanel>
-                        <ListBox Name="lb">
-                            <ListBoxItem HorizontalAlignment="Center">
-                                <Button Click="Add_Procedure_Click" Background="AliceBlue">Добавить процедуру</Button>
-                            </ListBoxItem>
-                        </ListBox>
-                        <GroupBox Header="Процедура" x:Name="procedureWin">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock Grid.Row="0" Grid.Column="0" Margin="3">Тип:</TextBlock>
-                                <ComboBox Grid.Row="0" Grid.Column="1" Margin="3"></ComboBox>
-                                <TextBlock Grid.Row="1" Grid.Column="0" Margin="3">Имя:</TextBlock>
-                                <TextBox x:Name="txBoxProcName" Grid.Row="1" Grid.Column="1" Margin="3"/>
-                                <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Параметры: </TextBlock>
-                                <StackPanel x:Name="procParamsPanel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
-                                    <vies:ParamBox ParamName="fff"/>
-                                </StackPanel>
-                                <Button x:Name="btnProcSave" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="4">Сохранить</Button>
-
-                            </Grid>
-                        </GroupBox>
-                    </StackPanel>
+                    <vies:ProceduresControl x:Name="procedureView"/>
+                </Expander>
+                <Expander Header="Свойства вершины">
+                    
                 </Expander>
             </StackPanel>
         </Border>
@@ -92,8 +64,12 @@
                 <MenuItem Header="Сохранить"/>
             </MenuItem>
             <CheckBox x:Name="btnEditMode">Режим редактирования</CheckBox>
+            <ToolBar>
+                <TextBox Width="50" />
+            </ToolBar>
         </Menu>
 
-        
+        <TextBox x:Name="txtError" Grid.Row="2" Grid.Column="1" Margin="5" IsReadOnly="True"/>
+
     </Grid>
 </Window>

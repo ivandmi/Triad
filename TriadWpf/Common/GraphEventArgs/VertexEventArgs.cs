@@ -38,5 +38,11 @@ namespace TriadWpf.GraphEventArgs
             RoutineViewItem = item;
             Point = point;
         }
+
+        public VertexEventArgs(RoutineViewItem item, Point point)
+        {
+            RoutineViewItem = item;
+            Point = point;
+        }
     }
 }

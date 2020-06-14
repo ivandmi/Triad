@@ -9,6 +9,8 @@ using System.Collections;
 using System.Windows.Documents;
 using System.Collections.Generic;
 using System.Linq;
+using TriadWpf.Models;
+using TriadWpf.Common.GraphEventArgs;
 
 namespace TriadWpf.Presenter
 {
@@ -17,38 +19,88 @@ namespace TriadWpf.Presenter
         IMainView mainView;
         RoutinesRepository routinesRepository;
 
+        ProcedureRepository procedureRepository;
+
         /// <summary>
         /// Модель
         /// </summary>
         Graph graph;
-        private List<ICondition> conditions;
+        private Dictionary<string ,ICondition> conditions;
+
+        private CommonCondition commonCondition;
 
         public AppPresenter(IMainView view)
         {
             mainView = view;
             graph = new Graph();
             routinesRepository = new RoutinesRepository();
-            conditions = new List<ICondition>();
-            
+            procedureRepository = new ProcedureRepository();
+            conditions = new Dictionary<string, ICondition>();
+            commonCondition = new CommonCondition();
 
+            // События, связанные с отображением графа
             mainView.AddVertex += MainView_AddVertex;
             mainView.RemoveVertex += MainView_RemoveVertex;
 
             mainView.AddEdge += MainView_AddEdge;
             mainView.RemoveEdge += MainView_RemoveEdge;
 
-            mainView.AddProcedure += MainView_AddProcedure;
-
             mainView.AddPolusToNode += MainView_AddPolusToNode;
 
+            // Задаем типы рутин и процедур
             mainView.SetNodeTypes(routinesRepository.RoutineMetadata);
+            mainView.ProcedureView.SetProceduresTypes(procedureRepository.Procedures);
+
+            // События, связанные с процедурами
+            mainView.ProcedureView.CreateProcedureBlueprint += ProcedureView_CreateProcedureBlueprint;
+            mainView.ProcedureView.SaveProcedure += ProcedureView_SaveProcedure;
+
+            //Событие запуска симуляции
+            mainView.RunSimulation += MainView_RunSimulation;
         }
 
-        private void MainView_AddProcedure(object sender, Common.GraphEventArgs.ProcedureEventArgs e)
+        private void MainView_RunSimulation(object sender, SimulationEventArgs e)
         {
-            IProcedure procedure = e.ProcedureMetadata.CreateProcedure();
+            SimulationService service = new SimulationService();
+            List<ProcedureResult> list = service.Simulate(graph, commonCondition, conditions);
 
-            throw new NotImplementedException();
+            mainView.ShowResults(list);
+        }
+
+        private void ProcedureView_SaveProcedure(object sender, ProcedureEventArgs e)
+        {
+            IProcedure procedure = e.ProcedureBlueprint.Metadata.CreateProcedure();
+            ProcedureBuilder builder = new ProcedureBuilder();
+            var dict = CreateProcedureParamDict(e.ProcedureBlueprint.ModelParamByProcParam);
+            try
+            {
+                builder.AddParamsToProcudure(graph, procedure, dict);
+            }
+            catch (Exception err)
+            {
+                mainView.ShowError(err.Message);
+            }
+            commonCondition.AddProcedure(e.ProcedureBlueprint.Name ,procedure);
+        }
+
+        private Dictionary<ParamMetadata, NodeParam> CreateProcedureParamDict(Dictionary<ParamMetadata, string> dict)
+        {
+            Dictionary<ParamMetadata, NodeParam> res = new Dictionary<ParamMetadata, NodeParam>();
+            foreach(var pair in dict)
+            {
+                var splits = pair.Value.Split('.');
+                NodeParam nodeParam = new NodeParam(splits[0], splits[1]);
+                res.Add(pair.Key, nodeParam);
+            }
+            return res;
+        }
+
+        private void ProcedureView_CreateProcedureBlueprint(object sender, Common.GraphEventArgs.ProcedureEventArgs e)
+        {
+            ProcedureBlueprint blueprint = new ProcedureBlueprint();
+            blueprint.Name = "Новая процедура " + commonCondition.ProceduresCount.ToString();
+            blueprint.Metadata = new ProcedureCount();
+            mainView.ProcedureView.AddProcedureBlueprint(blueprint);
         }
 
         private void MainView_AddPolusToNode(object sender, PolusEventArgs e)
