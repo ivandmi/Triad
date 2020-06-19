@@ -42,12 +42,15 @@ namespace TriadWpf.Models
 
             var constructorFields = GetRoutineParameters(routine);
 
-            foreach(var field in constructorFields)
+            if (constructorFields != null)
             {
-                var first = fieldsList.FirstOrDefault(x => x.Name == field.MetaData.Name);
-                if (first != null)
+                foreach (var field in constructorFields)
                 {
-                    fieldsList.Remove(first);
+                    var first = fieldsList.FirstOrDefault(x => x.Name == field.MetaData.Name);
+                    if (first != null)
+                    {
+                        fieldsList.Remove(first);
+                    }
                 }
             }
 

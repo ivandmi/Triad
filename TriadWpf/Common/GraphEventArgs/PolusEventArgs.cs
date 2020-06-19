@@ -5,9 +5,9 @@ namespace TriadWpf.GraphEventArgs
 {
     public class PolusEventArgs:EventArgs
     {
-        public CoreName PolusName { get; private set; }
-        public CoreName NodeName { get; private set; }
-        public PolusEventArgs(CoreName polusName, CoreName nodeName)
+        public string PolusName { get; private set; }
+        public string NodeName { get; private set; }
+        public PolusEventArgs(string polusName, string nodeName)
         {
             PolusName = polusName;
             NodeName = nodeName;

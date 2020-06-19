@@ -59,7 +59,7 @@ namespace TriadWpf.Models
             // Не нравится, что извлекаем по имени, хотелось бы проверять что
             // реализован например интерфейс IProcessing
             var method = type.GetMethod("DoProcessing");
-            if (method!=null && method.ReturnType == typeof(void))
+            if (method!=null && method.ReturnType != typeof(void))
             {
                 return method.Invoke(procedure, null);
             }
@@ -74,14 +74,20 @@ namespace TriadWpf.Models
             Dictionary<string, object> results = new Dictionary<string, object>();
 
             var parameters = method?.GetParameters();
+            
 
-            foreach(var param in parameters)
+            if (parameters != null)
             {
-                var res = Activator.CreateInstance(param.GetType());
-                results.Add(param.Name, res);
-            }
-            method?.Invoke(procedure, results.Values.ToArray());
+                object[] array = new object[parameters.Length];
+                
+                method?.Invoke(procedure, array);
 
+                for(int i = 0; i<parameters.Length;i++)
+                {
+                    results.Add(parameters[i].Name, array[i]);
+                }
+            }
+            
             return results;
         }
     }

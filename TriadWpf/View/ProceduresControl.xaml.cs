@@ -126,6 +126,7 @@ namespace TriadWpf.View
                     
                 }
                 blueprint.ModelParamByProcParam = dict;
+                blueprint.Metadata = cmbProcType.SelectedItem as IProcedureMetadata;
                 OnSaveProcedure(new ProcedureEventArgs(blueprint));
             }
         }

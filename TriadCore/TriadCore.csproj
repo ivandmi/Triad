@@ -90,6 +90,7 @@
     <Compile Include="Информационные процедуры\Стандартные\Mean.cs" />
     <Compile Include="Информационные процедуры\Стандартные\Min.cs" />
     <Compile Include="Информационные процедуры\Стандартные\Time.cs" />
+    <Compile Include="Информационные процедуры\Стандартные\VarChanging.cs" />
     <Compile Include="Общее\ArrayInitializer.cs" />
     <Compile Include="Общее\CoreName.cs" />
     <Compile Include="Общее\CoreNameDictionary.cs" />
@@ -122,6 +123,9 @@
     <Compile Include="Календарь событий\События\ReceivingMessageEvent.cs" />
     <Compile Include="Общее\Функции\SetFunctions.cs" />
     <Compile Include="Рутины\Базовые\MessageGenerator.cs" />
+    <Compile Include="Рутины\Базовые\PetriNetPlace.cs" />
+    <Compile Include="Рутины\Базовые\PetriNetPropabilityTransition.cs" />
+    <Compile Include="Рутины\Базовые\PetriNetTransition.cs" />
     <Compile Include="Рутины\Базовые\Receiver.cs" />
     <Compile Include="Структуры\Графовые константы\ComplGraph.cs" />
     <Compile Include="Структуры\Графовые константы\Rectan.cs" />

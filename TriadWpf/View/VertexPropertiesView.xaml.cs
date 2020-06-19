@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TriadCore;
 using TriadWpf.Common.GraphEventArgs;
 using TriadWpf.Common.Interfaces;
+using TriadWpf.GraphEventArgs;
 using TriadWpf.Models;
 
 namespace TriadWpf.View
@@ -30,6 +24,7 @@ namespace TriadWpf.View
 
         public event EventHandler<ChangeNameArgs> ChangeName;
         public event EventHandler<UpdateParamValueArgs> UpdateRoutineParam;
+        public event EventHandler<PolusEventArgs> AddPolus;
 
         void OnChangeName(ChangeNameArgs e)
         {
@@ -39,6 +34,11 @@ namespace TriadWpf.View
         void OnUpdateRoutineParam(UpdateParamValueArgs e)
         {
             UpdateRoutineParam?.Invoke(this, e);
+        }
+
+        void OnAddPolus(PolusEventArgs e)
+        {
+            AddPolus?.Invoke(this, e);
         }
 
         public void SetVertexName(string name)
@@ -77,6 +77,35 @@ namespace TriadWpf.View
             {
                 ParamBox box = paramCntrl as ParamBox;
                 OnUpdateRoutineParam(new UpdateParamValueArgs((RoutineParamMetaData)box.Tag, box.ParamValue));
+            }
+        }
+
+        public void BadName(string errorText)
+        {
+            Popup popup = new Popup();
+            TextBlock text = new TextBlock();
+            text.Background = new SolidColorBrush(Colors.HotPink);
+            text.Text = errorText;
+            popup.Child = text;
+            popup.PlacementTarget = txtVertexName;
+            popup.IsOpen = true;
+            popup.StaysOpen = false;
+        }
+
+        private void btnAddPolus_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtPolusName.Text != "")
+            {
+                OnAddPolus(new PolusEventArgs(txtPolusName.Text, txtVertexName.Text));
+            }
+        }
+
+        public void ShowPoluses(params CoreName[] poluses)
+        {
+            lbPoluses.Items.Clear();
+            foreach(var polus in poluses)
+            {
+                lbPoluses.Items.Add(polus);
             }
         }
     }

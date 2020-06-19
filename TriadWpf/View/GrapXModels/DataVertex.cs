@@ -8,7 +8,16 @@ namespace TriadWpf.View.GraphXModels
 {
     public class DataVertex : VertexBase, INotifyPropertyChanged
     {
-        public CoreName NodeName { get; set; }
+        private CoreName nodeName;
+        public CoreName NodeName 
+        { 
+            get => nodeName;
+            set
+            {
+                nodeName = value;
+                OnPropertyChanged("NodeName");
+            } 
+        }
         public ObservableCollection<CoreName> Poluses { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;

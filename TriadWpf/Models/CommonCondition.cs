@@ -49,6 +49,11 @@ namespace TriadWpf.Models
             return dict;
         }
 
+        public override void DoInitialize()
+        {
+            InitializeAllIProcedure();
+        }
+
         private Dictionary<string, int> NameIdDictionary;
     }
 }

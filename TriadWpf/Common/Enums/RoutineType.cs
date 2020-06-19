@@ -4,6 +4,8 @@
     {
         Undefined,
         MessegeGenerator,
-        Receiver
+        Receiver,
+        PetriNetPlace,
+        PetriNetTransition
     }
 }

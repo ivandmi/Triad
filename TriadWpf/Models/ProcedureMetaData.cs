@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TriadCore;
+using TriadCore.Информационные_процедуры.Стандартные;
 using TriadWpf.Common.Interfaces;
 
 namespace TriadWpf.Models
@@ -23,6 +24,28 @@ namespace TriadWpf.Models
                 new IPParamMetadata("Полюс", "Полюс", "Arg", SpyObjectType.Polus)
             };
 
+        }
+    }
+
+    class ProcedureVarChanging : IProcedureMetadata
+    {
+        public string Name => "Обозреватель переменной";
+
+        public string Description => "";
+
+        public IEnumerable<IPParamMetadata> Params { get; }
+
+        public IProcedure CreateProcedure()
+        {
+            return new VarChanging();
+        }
+
+        public ProcedureVarChanging()
+        {
+            Params = new List<IPParamMetadata>()
+            {
+                new IPParamMetadata("Переменная","Переменная","Arg", SpyObjectType.Var)
+            };
         }
     }
 }

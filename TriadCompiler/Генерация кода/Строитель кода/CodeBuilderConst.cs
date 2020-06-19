@@ -205,7 +205,7 @@ namespace TriadCompiler
                 /// <summary>
                 /// Имя функции, планирующей события
                 /// </summary>
-                public const string EventShedule = "Sсhedule";
+                public const string EventShedule = "Schedule";
                 /// <summary>
                 /// Имя функции, отменяющей запланированные события
                 /// </summary>

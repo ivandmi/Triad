@@ -1,7 +1,9 @@
 ﻿using GraphX.Controls;
+using System;
 using System.Linq;
 using System.Windows;
 using TriadCore;
+using TriadWpf.Common.Enums;
 using TriadWpf.Interfaces;
 using TriadWpf.View.GraphXModels;
 
@@ -10,9 +12,15 @@ namespace TriadWpf.View
     class GraphViewManager : IGraphViewManager
     {
         GraphAreaControl graphArea;
+
+        ResourceDictionary resources;
         public GraphViewManager(GraphAreaControl control)
         {
             graphArea = control;
+            resources = new ResourceDictionary()
+            {
+                Source = new System.Uri("/TriadWpf;component/View/VertexTemplates.xaml", System.UriKind.Relative)
+            };
         }
         public void AddEdge(CoreName from, CoreName to)
         {
@@ -40,12 +48,28 @@ namespace TriadWpf.View
             graphArea.RelayoutGraph();
         }
 
-        public void AddVertex(CoreName node, Point point)
+        public void AddVertex(CoreName node, Point point, RoutineType type)
         {
             var vd = new DataVertex(node);
             var vc = new VertexControl(vd);
+            //Style style = (Style)resources["PetriNetPlace"];
+            vc.Style = GetStyle(type);
             vc.SetPosition(point);
-            graphArea.AddVertexAndData(vd, vc);
+            graphArea.AddVertexAndData(vd, vc, true);
+        }
+
+        // Говно, которое надо переделать
+        private Style GetStyle(RoutineType type)
+        {
+            switch (type)
+            {
+                case RoutineType.PetriNetPlace:
+                    return (Style)resources["PetriNetPlace"];
+                case RoutineType.PetriNetTransition:
+                    return (Style)resources["PetriNetTransition"];
+                default:
+                    return (Style)resources["defaultVertex"];
+            }
         }
 
         public void ChangeVertexName(CoreName oldName, CoreName newName)

@@ -65,13 +65,15 @@ namespace TriadWpf
             //This property sets async algorithms computation so methods like: Area.RelayoutGraph() and Area.GenerateGraph()
             //will run async with the UI thread. Completion of the specified methods can be catched by corresponding events:
             //Area.RelayoutFinished and Area.GenerateGraphFinished.
-            logicCore.AsyncAlgorithmCompute = false;
+            //logicCore.AsyncAlgorithmCompute = false;
 
             gArea.SetVerticesDrag(true, true);
             gArea.SetEdgesDrag(false);
 
-            //_editorManager = new EditorObjectManager(gArea, gg_zoomctrl);
+            gArea.VertexLabelFactory = new DefaultVertexlabelFactory();
 
+            //_editorManager = new EditorObjectManager(gArea, gg_zoomctrl);
+            
             gArea.VertexSelected += graphArea_VertexSelected;
             gArea.VertexClicked += GArea_VertexClicked;
             GraphViewManager = new GraphViewManager(gArea);
@@ -84,6 +86,8 @@ namespace TriadWpf
             vertexView.PreviewMouseLeftButtonDown += VertexView_PreviewMouseLeftButtonDown;
             zoomctrl.PreviewDrop += dg_Area_Drop;
 
+            //ZoomControl.SetViewFinderVisibility(zoomctrl, Visibility.Visible);
+            //gArea.ShowAllVerticesLabels();
         }
 
         private void VertexView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -267,7 +271,7 @@ namespace TriadWpf
                     {
                         popup.IsOpen = false;
                         CoreName name = (args.VertexControl.Vertex as DataVertex).NodeName;
-                        OnAddPolusToNode(new PolusEventArgs(new CoreName(textBox.Text), name));
+                        //OnAddPolusToNode(new PolusEventArgs(new CoreName(textBox.Text), name));
                     };
                     panel.Orientation = Orientation.Horizontal;
                     panel.Margin = new Thickness(5);
@@ -332,6 +336,11 @@ namespace TriadWpf
             SimilationResultView view = new SimilationResultView();
             SimulationResultPresenter presenter = new SimulationResultPresenter(view, results);
             view.Show();
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            OnRunSimulate(new SimulationEventArgs(double.Parse(txtTime.Text)));
         }
     }
 }

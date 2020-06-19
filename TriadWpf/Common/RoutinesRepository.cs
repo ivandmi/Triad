@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TriadCore;
+using TriadCore.Рутины.Базовые;
 using TriadWpf.Common.Enums;
 using TriadWpf.Models;
 
@@ -27,7 +28,9 @@ namespace TriadWpf.Common
             RoutineMetadata = new List<RoutineViewItem>
             {
                 new RoutineViewItem("Генератор сообщений", RoutineType.MessegeGenerator),
-                new RoutineViewItem("Получатель сообщений", RoutineType.Receiver)
+                new RoutineViewItem("Получатель сообщений", RoutineType.Receiver),
+                new RoutineViewItem("Сеть петри, место", RoutineType.PetriNetPlace),
+                new RoutineViewItem("Сеть петри, переход", RoutineType.PetriNetTransition)
             };
         }
 
@@ -39,6 +42,10 @@ namespace TriadWpf.Common
                     return new MessageGenerator();
                 case RoutineType.Receiver:
                     return new Receiver();
+                case RoutineType.PetriNetPlace:
+                    return new PetriNetPlace(0, 1);
+                case RoutineType.PetriNetTransition:
+                    return new PetriNetTransition(1);
                 default:
                     throw new Exception("Такой тип рутины не определен");
             }

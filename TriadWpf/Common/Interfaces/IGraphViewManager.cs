@@ -1,11 +1,12 @@
 ﻿using System.Windows;
 using TriadCore;
+using TriadWpf.Common.Enums;
 
 namespace TriadWpf.Interfaces
 {
     public interface IGraphViewManager
     {
-        void AddVertex(CoreName node, Point point);
+        void AddVertex(CoreName node, Point point, RoutineType type);
         void AddVertex(CoreName node);
         void RemoveVertex(CoreName node);
         void AddEdge(CoreName from, CoreName to);

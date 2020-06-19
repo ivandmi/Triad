@@ -10,12 +10,33 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="326" Width="669.333" Name="win">
     <Window.Resources>
-        <Style TargetType="{x:Type graphxctrl:VertexControl}">
+        <!--<Style TargetType="{x:Type graphxctrl:VertexControl}">
+            <Setter Property="ShowLabel" Value="True"/>
+
             <Style.Triggers>
                 <Trigger Property="graphxctrl:HighlightBehaviour.Highlighted" Value="True">
                     <Setter Property="Background" Value="Coral"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>-->
+        <Style TargetType="graphxctrl:AttachableVertexLabelControl">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="LabelPositionMode" Value="Sides"/>
+            <Setter Property="LabelPositionSide" Value="Top"/>
+
+            <!-- Custom label template body -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="graphxctrl:AttachableVertexLabelControl">
+                        <Grid>
+                            <TextBlock VerticalAlignment="Center" 
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding AttachNode.Vertex.NodeName, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -68,7 +89,8 @@
             </MenuItem>
             <CheckBox x:Name="btnEditMode">Режим редактирования</CheckBox>
             <ToolBar>
-                <TextBox Width="50" />
+                <TextBox x:Name="txtTime" Width="50" />
+                <Button x:Name="btnStart" Click="btnStart_Click">Запустить моделирование</Button>
             </ToolBar>
         </Menu>
 

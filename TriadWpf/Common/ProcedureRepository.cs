@@ -12,7 +12,8 @@ namespace TriadWpf.Common
         {
             Procedures = new List<IProcedureMetadata>()
             {
-                new ProcedureCount()
+                new ProcedureCount(),
+                new ProcedureVarChanging()
             };
         }
     }

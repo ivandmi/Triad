@@ -78,6 +78,7 @@ namespace TriadWpf.Presenter
         private void MainView_RunSimulation(object sender, SimulationEventArgs e)
         {
             SimulationService service = new SimulationService();
+            commonCondition.TerrminateTime = e.TermianateTime;
             List<ProcedureResult> list = service.Simulate(graph, commonCondition, conditions);
 
             mainView.ShowResults(list);
@@ -121,14 +122,14 @@ namespace TriadWpf.Presenter
 
         private void MainView_AddPolusToNode(object sender, PolusEventArgs e)
         {
-            graph[e.NodeName].DeclarePolus(e.PolusName);
-            var routine = graph[e.NodeName].NodeRoutine;
-            if (routine != null)
-            {
-                // Пока реализуем связь один к одному
-                routine.AddPolusPair(e.PolusName, e.PolusName);
-            }
-            mainView.GraphViewManager.AddPolusToVertex(e.NodeName, e.PolusName);
+            //graph[e.NodeName].DeclarePolus(e.PolusName);
+            //var routine = graph[e.NodeName].NodeRoutine;
+            //if (routine != null)
+            //{
+            //    // Пока реализуем связь один к одному
+            //    routine.AddPolusPair(e.PolusName, e.PolusName);
+            //}
+            //mainView.GraphViewManager.AddPolusToVertex(e.NodeName, e.PolusName);
         }
 
         private void MainView_RemoveEdge(object sender, EdgeEventArg e)
@@ -157,7 +158,7 @@ namespace TriadWpf.Presenter
                 name = new CoreName("Вершина "+(graph.NodeCount+1).ToString());
 
             if (e.Point != null)
-                mainView.GraphViewManager.AddVertex(name, e.Point);
+                mainView.GraphViewManager.AddVertex(name, e.Point, e.RoutineViewItem.Type);
             else
                 mainView.GraphViewManager.AddVertex(name); 
             
