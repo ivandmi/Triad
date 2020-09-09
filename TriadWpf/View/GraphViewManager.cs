@@ -14,6 +14,7 @@ namespace TriadWpf.View
         GraphAreaControl graphArea;
 
         ResourceDictionary resources;
+
         public GraphViewManager(GraphAreaControl control)
         {
             graphArea = control;
@@ -65,6 +66,7 @@ namespace TriadWpf.View
             {
                 case RoutineType.PetriNetPlace:
                     return (Style)resources["PetriNetPlace"];
+                case RoutineType.PetriNetPropabilityTransition:
                 case RoutineType.PetriNetTransition:
                     return (Style)resources["PetriNetTransition"];
                 default:
@@ -89,6 +91,22 @@ namespace TriadWpf.View
             var dataVertex = graphArea.VertexList.Keys.First(x => x.NodeName == node);
             graphArea.RemoveVertexAndEdges(dataVertex);
             graphArea.RelayoutGraph();
+        }
+
+        public void GenerateGraph(GraphExample graph)
+        {
+            graphArea.GenerateGraph(graph);
+            graphArea.RelayoutGraph();
+        }
+
+        public void RemovePolusToVertex(CoreName nodeName, CoreName polusName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ChangePolusName(CoreName nodeName, CoreName oldPolusName, CoreName newPolusName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

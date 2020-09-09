@@ -2555,7 +2555,8 @@
         </member>
         <member name="M:TriadCore.Graph.AddEdge(TriadCore.CoreName,TriadCore.CoreName,TriadCore.CoreName,TriadCore.CoreName)">
             <summary>
-            Добавить ребро
+            Добавить ребро. (Добавляются направленные дуги из polusFromName в polusToName и из 
+            polusToName в polusFromName)
             </summary>
             <param name="nodeFromName">Начальная вершина</param>
             <param name="polusFromName">Имя начального полюса</param>

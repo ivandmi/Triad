@@ -22,13 +22,15 @@ namespace TriadWpf.View
             InitializeComponent();
         }
 
-        public event EventHandler<ChangeNameArgs> ChangeName;
+        public event EventHandler<ChangeNameArgs> ChangeNodeName;
         public event EventHandler<UpdateParamValueArgs> UpdateRoutineParam;
         public event EventHandler<PolusEventArgs> AddPolus;
+        public event EventHandler<ChangeNameArgs> ChangePolusName;
+        public event EventHandler<PolusEventArgs> RemovePolus;
 
         void OnChangeName(ChangeNameArgs e)
         {
-            ChangeName?.Invoke(this, e);
+            ChangeNodeName?.Invoke(this, e);
         }
 
         void OnUpdateRoutineParam(UpdateParamValueArgs e)

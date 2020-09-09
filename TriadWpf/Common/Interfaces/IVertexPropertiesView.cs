@@ -15,7 +15,9 @@ namespace TriadWpf.Common.Interfaces
 
         void ShowPoluses(params CoreName[] poluses);
 
-        event EventHandler<ChangeNameArgs> ChangeName;
+        event EventHandler<ChangeNameArgs> ChangeNodeName;
+        event EventHandler<ChangeNameArgs> ChangePolusName;
+        event EventHandler<PolusEventArgs> RemovePolus;
         event EventHandler<UpdateParamValueArgs> UpdateRoutineParam;
         event EventHandler<PolusEventArgs> AddPolus;
 

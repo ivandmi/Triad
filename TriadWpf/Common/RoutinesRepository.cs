@@ -29,8 +29,19 @@ namespace TriadWpf.Common
             {
                 new RoutineViewItem("Генератор сообщений", RoutineType.MessegeGenerator),
                 new RoutineViewItem("Получатель сообщений", RoutineType.Receiver),
+
+                // Обработчик не реализован
+                new RoutineViewItem("Обработчик заявок/сообщений", RoutineType.Undefined),
+
                 new RoutineViewItem("Сеть петри, место", RoutineType.PetriNetPlace),
-                new RoutineViewItem("Сеть петри, переход", RoutineType.PetriNetTransition)
+                new RoutineViewItem("Сеть петри, переход", RoutineType.PetriNetTransition),
+                new RoutineViewItem("Сеть Петри, случайный переход", RoutineType.PetriNetPropabilityTransition),
+                
+                // Не реализовано
+                new RoutineViewItem("Сеть петри, временной переход", RoutineType.Undefined),
+                new RoutineViewItem("Сервер", RoutineType.Undefined),
+                new RoutineViewItem("Клиент", RoutineType.Undefined),
+                new RoutineViewItem("Роутер", RoutineType.Undefined)
             };
         }
 
@@ -46,6 +57,8 @@ namespace TriadWpf.Common
                     return new PetriNetPlace(0, 1);
                 case RoutineType.PetriNetTransition:
                     return new PetriNetTransition(1);
+                case RoutineType.PetriNetPropabilityTransition:
+                    return new PetriNetPropabilityTransition(1, 0.5);
                 default:
                     throw new Exception("Такой тип рутины не определен");
             }

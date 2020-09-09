@@ -6,15 +6,11 @@
              xmlns:local="clr-namespace:TriadWpf.View"
              mc:Ignorable="d">
     <Grid>
-        <Border BorderBrush="Gray" CornerRadius="5" BorderThickness="1">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" x:Name="paramName" Margin="3"></TextBlock>
-                <TextBox Grid.Column="1" x:Name="paramValue" Margin="3" VerticalAlignment="Center"></TextBox>
-            </Grid>
-        </Border>  
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" x:Name="paramName" Margin="3"></TextBlock>
+        <TextBox Grid.Column="1" x:Name="paramValue" Margin="3" VerticalAlignment="Center"></TextBox>
     </Grid>
 </UserControl>

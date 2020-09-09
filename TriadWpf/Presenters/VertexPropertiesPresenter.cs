@@ -38,9 +38,22 @@ namespace TriadWpf.Presenters
 
             service = new RoutineDataService();
 
-            this.view.ChangeName += View_ChangeName;
+            this.view.ChangeNodeName += View_ChangeName;
             this.view.UpdateRoutineParam += View_UpdateRoutineParam;
             this.view.AddPolus += View_AddPolus;
+
+            this.view.ChangePolusName += View_ChangePolusName;
+            this.view.RemovePolus += View_RemovePolus;
+        }
+
+        private void View_RemovePolus(object sender, GraphEventArgs.PolusEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void View_ChangePolusName(object sender, Common.GraphEventArgs.ChangeNameArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void View_AddPolus(object sender, GraphEventArgs.PolusEventArgs e)
@@ -65,8 +78,13 @@ namespace TriadWpf.Presenters
         private void View_UpdateRoutineParam(object sender, Common.GraphEventArgs.UpdateParamValueArgs e)
         {
             // TODO: try catch ввывод ошибки
-            var value = Convert.ChangeType(e.Value, e.MetaData.Type);
-            node.NodeRoutine.SetValueForVar(new CoreName(e.MetaData.Name), value);
+            string value = e.Value.ToString();
+            if (value.Contains('.'))
+            {
+                value = value.Replace('.', ',');
+            }
+            var convertValue = Convert.ChangeType(value, e.MetaData.Type);
+            node.NodeRoutine.SetValueForVar(new CoreName(e.MetaData.Name), convertValue);
         }
 
         private void View_ChangeName(object sender, Common.GraphEventArgs.ChangeNameArgs e)
@@ -75,7 +93,7 @@ namespace TriadWpf.Presenters
             if(name!= null)
             {
                 graphView.ChangeVertexName(node.Name, name);
-                graph.RenameNode(node.Name, name);
+                node = graph.RenameNode(node.Name, name);
             }
         }
 

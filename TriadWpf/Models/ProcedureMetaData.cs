@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using TriadCore;
-using TriadCore.Информационные_процедуры.Стандартные;
 using TriadWpf.Common.Interfaces;
 
 namespace TriadWpf.Models

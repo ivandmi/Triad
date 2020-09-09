@@ -7,7 +7,7 @@ namespace TriadCore
     /// <summary>
     /// Модель Эрдеша – Реньи
     /// </summary>
-    class ErdosRenyiGraph :Graph
+    public class ErdosRenyiGraph :Graph
     {
         public ErdosRenyiGraph()
             :base(new CoreName("Неизвестный случайный граф Ердеша-Реньи"))

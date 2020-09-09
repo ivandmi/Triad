@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TriadCore.Информационные_процедуры.Стандартные
+namespace TriadCore
 {
     public class VarChanging : IProcedure
     {

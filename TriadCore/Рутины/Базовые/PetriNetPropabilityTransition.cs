@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TriadCore.Рутины.Базовые
 {
-    class PetriNetPropabilityTransition : Routine
+    public class PetriNetPropabilityTransition : Routine
     {
         private Double T;
 
@@ -45,7 +45,7 @@ namespace TriadCore.Рутины.Базовые
             PetriNetMessage mess = (PetriNetMessage)Enum.Parse(typeof(PetriNetMessage), message);
             if (mess == PetriNetMessage.TRY_REQUEST)
             {
-                PrintMessage("Получен запрос из полюса " + polusName.ToString());
+                //PrintMessage("Получен запрос из полюса " + polusName.ToString());
                 if (!inputs[polusName])
                 {
                     inputs[polusName] = true;
@@ -96,15 +96,15 @@ namespace TriadCore.Рутины.Базовые
             if (requestsCount == inputs.Count)
             {
                 PrintMessage("Получен запрос от всех вершин");
-                Random rand = new Random();
-
-                if(rand.NextDouble() < Propability)
+                double prop = Rand.RandomReal();
+                PrintMessage(prop);
+                if(prop < Propability)
                 {
                     foreach (var key in inputs.Keys)
                     {
                         SendMessageVia(PetriNetMessage.REQEST_ACCEPTED.ToString(), key);
 
-                        PrintMessage("Отправляем ответ через полюс " + key.ToString());
+                        //PrintMessage("Отправляем ответ через полюс " + key.ToString());
                     }
                 }
                 else

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using TriadWpf.Models;
 using TriadWpf.Common.GraphEventArgs;
 using TriadWpf.Presenters;
+using TriadWpf.View.GraphXModels;
 
 namespace TriadWpf.Presenter
 {
@@ -54,8 +55,6 @@ namespace TriadWpf.Presenter
             mainView.AddEdge += MainView_AddEdge;
             mainView.RemoveEdge += MainView_RemoveEdge;
 
-            mainView.AddPolusToNode += MainView_AddPolusToNode;
-
             mainView.VertexSeleacted += MainView_VertexSeleacted;
 
             // Задаем типы рутин и процедур
@@ -68,6 +67,23 @@ namespace TriadWpf.Presenter
 
             //Событие запуска симуляции
             mainView.RunSimulation += MainView_RunSimulation;
+
+            mainView.GenerateGraph += MainView_GenerateGraph;
+        }
+
+        private void MainView_GenerateGraph(object sender, EventArgs e)
+        {
+            GraphConverter converter = new GraphConverter();
+            ErdosRenyiGraph erdos = new ErdosRenyiGraph();
+            BollobasRiordanGraph bollobas = new BollobasRiordanGraph();
+
+            bollobas.DeclareNode(new CoreNameRange("user", 0, 49));
+            bollobas.DeclarePolusInAllNodes(new CoreNameRange("pol", 0, 49));
+            bollobas.CompleteGraph(4);
+
+            GraphExample graphExample = converter.GetGraph(bollobas);
+
+            mainView.GraphViewManager.GenerateGraph(graphExample);
         }
 
         private void MainView_VertexSeleacted(object sender, VertexEventArgs e)
@@ -120,21 +136,10 @@ namespace TriadWpf.Presenter
             mainView.ProcedureView.AddProcedureBlueprint(blueprint);
         }
 
-        private void MainView_AddPolusToNode(object sender, PolusEventArgs e)
-        {
-            //graph[e.NodeName].DeclarePolus(e.PolusName);
-            //var routine = graph[e.NodeName].NodeRoutine;
-            //if (routine != null)
-            //{
-            //    // Пока реализуем связь один к одному
-            //    routine.AddPolusPair(e.PolusName, e.PolusName);
-            //}
-            //mainView.GraphViewManager.AddPolusToVertex(e.NodeName, e.PolusName);
-        }
-
         private void MainView_RemoveEdge(object sender, EdgeEventArg e)
         {
-            throw new System.NotImplementedException();
+            //graph.RemoveEdge(e.NodeFrom, e.NodeTo);
+            mainView.GraphViewManager.RemoveEdge(e.NodeFrom, e.NodeTo);
         }
 
         private void MainView_AddEdge(object sender, EdgeEventArg e)
@@ -144,8 +149,8 @@ namespace TriadWpf.Presenter
 
         private void MainView_RemoveVertex(object sender, VertexEventArgs e)
         {
-            
-            throw new System.NotImplementedException();
+            graph.Subtract(graph[e.Name]);
+            mainView.GraphViewManager.RemoveVertex(e.Name);
         }
 
         private void MainView_AddVertex(object sender, VertexEventArgs e)
@@ -176,5 +181,7 @@ namespace TriadWpf.Presenter
             else
                 graph.DeclareNode(name);
         }
+
+
     }
 }

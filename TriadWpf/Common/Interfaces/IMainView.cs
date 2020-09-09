@@ -33,11 +33,13 @@ namespace TriadWpf.Interfaces
         /// <summary>
         /// Срабатывает, когда надо добавить полюс в модель и представление
         /// </summary>
-        event EventHandler<PolusEventArgs> AddPolusToNode;
+        //event EventHandler<PolusEventArgs> AddPolusToNode;
 
         event EventHandler<VertexEventArgs> VertexSeleacted;
 
         event EventHandler<SimulationEventArgs> RunSimulation;
+
+        event EventHandler GenerateGraph;
 
         /// <summary>
         /// Предоставляет управление над вершинами на форме

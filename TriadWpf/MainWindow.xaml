@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TriadWpf"
-        xmlns:vies="clr-namespace:TriadWpf.View"
+        xmlns:views="clr-namespace:TriadWpf.View"
         xmlns:graphxModels="clr-namespace:TriadWpf.View.GraphXModels"
         xmlns:graphxctrl="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="326" Width="669.333" Name="win">
+        Title="Система Triad" Height="326" Width="669.333" Name="win">
     <Window.Resources>
         <!--<Style TargetType="{x:Type graphxctrl:VertexControl}">
             <Setter Property="ShowLabel" Value="True"/>
@@ -19,6 +19,24 @@
                 </Trigger>
             </Style.Triggers>
         </Style>-->
+        <Style TargetType="{x:Type graphxctrl:VertexControl}">
+            <Setter Property="VertexShape" Value="Ellipse"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Ellipse  Fill="DarkSlateGray"  Width="30" Height="30"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="graphxctrl:HighlightBehaviour.Highlighted" Value="True">
+                    <Setter Property="Background" Value="Coral"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Path x:Key="IconTriangle" x:Shared="False" Stretch="Uniform" Data="M50.25,133.5 L49.75,158.25 76,147.25 z" Fill="Green" Stroke="Green"/>
         <Style TargetType="graphxctrl:AttachableVertexLabelControl">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="Black"/>
@@ -58,9 +76,14 @@
                     <EventSetter Event="ListBoxItem.PreviewMouseLeftButtonDown" Handler="VertexView_PreviewMouseLeftButtonDown"/>
                 </Style>
             </ListBox.ItemContainerStyle>
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Resources>
         </ListBox>
         
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5">
             <graphxctrl:ZoomControl x:Name="zoomctrl" AllowDrop="True">
                 <graphxModels:GraphAreaControl x:Name="gArea">
                     
@@ -68,29 +91,56 @@
             </graphxctrl:ZoomControl>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="2" Margin="5" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1">
+        <Border Grid.Row="1" Grid.Column="2" Margin="5" Grid.RowSpan="2" BorderBrush="Gray" BorderThickness="1" CornerRadius="5">
             <StackPanel Orientation="Vertical">
-                <Expander Header="Информационные процедуры">
-                    <vies:ProceduresControl x:Name="procedureView"/>
+                <Expander Header="Условия Моделирования">
+                    <views:ConditionsView/>
                 </Expander>
+                <Expander Header="Информационные процедуры">
+                    <views:ProceduresControl x:Name="procedureView" Margin="2"/>
+                </Expander>
+                
                 <Expander Header="Свойства вершины">
-                    <StackPanel Orientation="Vertical" Name="routineParam">
-                        <vies:VertexPropertiesView x:Name="vertexPropertiesView"/>
+                    <StackPanel Orientation="Vertical" Name="routineParam" Margin="2">
+                        <views:VertexPropertiesView x:Name="vertexPropertiesView"/>
                     </StackPanel>
+                </Expander>
 
+                <Expander Header="Отображение графа">
+                    <StackPanel>
+                        <CheckBox x:Name="checkEdgeLabels" 
+                                  Margin="3" 
+                                  Content="Отображать лейблы ребер" 
+                                  IsChecked="True"
+                                  Checked="checkEdgeLabels_Checked"
+                                  Unchecked="checkEdgeLabels_Unchecked"/>
+                        
+                        <CheckBox x:Name="checkVertexLabels" 
+                                  Margin="3" 
+                                  Content="Отображать лейблы вершин" 
+                                  IsChecked="True"
+                                  Checked="checkVertexLabels_Checked"
+                                  Unchecked="checkVertexLabels_Unchecked"/>
+                    </StackPanel>
                 </Expander>
             </StackPanel>
         </Border>
 
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <MenuItem Header="Файл">
-                <MenuItem Header="Создать"/>
-                <MenuItem Header="Сохранить"/>
+                <MenuItem x:Name="btnCreateModel" Header="Создать" Click="btnCreateModel_Click"/>
+                <MenuItem x:Name="btnSaveModel" Header="Сохранить" Click="btnSaveModel_Click"/>
+            </MenuItem>
+            <MenuItem Header="Графы">
+                <MenuItem Header="Графовые константы" Name="btnGraphConst" Click="btnGraphConst_Click"/>
+                <MenuItem Header="Случайные графы" Name="btnRandomGraph" Click="btnRandomGraph_Click"/>
             </MenuItem>
             <CheckBox x:Name="btnEditMode">Режим редактирования</CheckBox>
             <ToolBar>
                 <TextBox x:Name="txtTime" Width="50" />
-                <Button x:Name="btnStart" Click="btnStart_Click">Запустить моделирование</Button>
+                <ToggleButton Click="btnStart_Click">
+                    <ContentControl Width="11" Height="12" Margin="0" Content="{StaticResource IconTriangle}"/>
+                </ToggleButton>
             </ToolBar>
         </Menu>
 

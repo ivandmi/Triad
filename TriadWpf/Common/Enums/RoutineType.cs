@@ -6,6 +6,7 @@
         MessegeGenerator,
         Receiver,
         PetriNetPlace,
-        PetriNetTransition
+        PetriNetTransition,
+        PetriNetPropabilityTransition
     }
 }

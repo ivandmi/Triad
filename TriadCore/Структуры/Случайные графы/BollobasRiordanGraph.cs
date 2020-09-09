@@ -7,7 +7,7 @@ namespace TriadCore
     /// <summary>
     /// Модель Боллобаша – Риордана с петлями, без кратных ребер
     /// </summary>
-    class BollobasRiordanGraph :Graph
+    public class BollobasRiordanGraph :Graph
     {
         public BollobasRiordanGraph()
             :base(new CoreName("Неизвестный случайный граф Боллобаша – Риордана"))

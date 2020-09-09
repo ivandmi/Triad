@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using TriadCore;
@@ -37,7 +38,7 @@ namespace TriadWpf.View
             var txtBox = tabItem.Content as TextBox;
             txtBox.Text += paramName + ": ";
 
-            if(value is IEnumerable<object> array)
+            if(value is Array array)
             {
                 foreach(var element in array)
                 {

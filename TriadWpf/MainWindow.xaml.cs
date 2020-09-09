@@ -21,6 +21,7 @@ using TriadWpf.Common.GraphEventArgs;
 using TriadWpf.Common.Interfaces;
 using TriadWpf.Models;
 using TriadWpf.Presenter;
+using System.Linq;
 
 namespace TriadWpf
 {
@@ -44,9 +45,9 @@ namespace TriadWpf
             //Now we can set optional parameters using AlgorithmFactory
             //NOTE: default parameters can be automatically created each time you change Default algorithms
             logicCore.DefaultLayoutAlgorithmParams =
-                               logicCore.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.KK);
+                               logicCore.AlgorithmFactory.CreateLayoutParameters(LayoutAlgorithmTypeEnum.Circular);
             //Unfortunately to change algo parameters you need to specify params type which is different for every algorithm.
-            ((KKLayoutParameters)logicCore.DefaultLayoutAlgorithmParams).MaxIterations = 100;
+            //((KKLayoutParameters)logicCore.DefaultLayoutAlgorithmParams).MaxIterations = 100;
 
             //This property sets vertex overlap removal algorithm.
             //Such algorithms help to arrange vertices in the layout so no one overlaps each other.
@@ -85,7 +86,9 @@ namespace TriadWpf
 
             vertexView.PreviewMouseLeftButtonDown += VertexView_PreviewMouseLeftButtonDown;
             zoomctrl.PreviewDrop += dg_Area_Drop;
-
+            GraphExample graph = new GraphExample();
+            
+            
             //ZoomControl.SetViewFinderVisibility(zoomctrl, Visibility.Visible);
             //gArea.ShowAllVerticesLabels();
         }
@@ -136,12 +139,18 @@ namespace TriadWpf
         public event EventHandler<ProcedureEventArgs> AddProcedure;
         public event EventHandler<SimulationEventArgs> RunSimulation;
         public event EventHandler<VertexEventArgs> VertexSeleacted;
+        public event EventHandler GenerateGraph;
 
         public IGraphViewManager GraphViewManager { get; private set; }
 
         public IProcedureView ProcedureView { get; }
 
         public IVertexPropertiesView VertexPropertiesView { get; }
+
+        private void OnGenerateGraph()
+        {
+            GenerateGraph?.Invoke(this, null);
+        }
 
         private void OnVertexSeleacted(VertexEventArgs e)
         {
@@ -341,6 +350,51 @@ namespace TriadWpf
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             OnRunSimulate(new SimulationEventArgs(double.Parse(txtTime.Text)));
+        }
+
+        private void checkEdgeLabels_Checked(object sender, RoutedEventArgs e)
+        {
+            if(checkEdgeLabels.IsChecked == true)
+            {
+                gArea.ShowAllEdgesLabels();
+            }
+        }
+
+        private void checkEdgeLabels_Unchecked(object sender, RoutedEventArgs e)
+        {
+            // TODO: Завести в презентере переменную отвечающую за это
+            // и при добавлении рубер не генерить лейбл
+            gArea.ShowAllEdgesLabels(false);
+        }
+
+        private void checkVertexLabels_Checked(object sender, RoutedEventArgs e)
+        {
+            gArea.ShowAllVerticesLabels();
+        }
+
+        private void checkVertexLabels_Unchecked(object sender, RoutedEventArgs e)
+        {
+            gArea.ShowAllVerticesLabels(false);
+        }
+
+        private void btnCreateModel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSaveModel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGraphConst_Click(object sender, RoutedEventArgs e)
+        {
+            OnGenerateGraph();
+        }
+
+        private void btnRandomGraph_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

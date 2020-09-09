@@ -41,7 +41,8 @@ namespace TriadWpf.View.GraphXModels
 
         public override string ToString()
         {
-            return polusFrom.ToString()+"->"+polusTo.ToString();
+            //return polusFrom.ToString()+"->"+polusTo.ToString();
+            return "";
         }
 
         private void OnPropertyChanged(string propname)

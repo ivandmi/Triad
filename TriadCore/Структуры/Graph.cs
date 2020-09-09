@@ -207,7 +207,7 @@ namespace TriadCore
             }
         }
 
-        public void RenameNode(CoreName oldName, CoreName newName)
+        public Node RenameNode(CoreName oldName, CoreName newName)
         {
             if(oldName == null)
                 throw new ArgumentNullException("Пустое старое имя вершины");
@@ -223,6 +223,8 @@ namespace TriadCore
 
             nodeList.Remove(oldName);
             nodeList.Add(newName, newNode);
+
+            return newNode;
         }
 
 
@@ -298,7 +300,8 @@ namespace TriadCore
 
 
         /// <summary>
-        /// Добавить ребро
+        /// Добавить ребро. (Добавляются направленные дуги из polusFromName в polusToName и из 
+        /// polusToName в polusFromName)
         /// </summary>
         /// <param name="nodeFromName">Начальная вершина</param>
         /// <param name="polusFromName">Имя начального полюса</param>

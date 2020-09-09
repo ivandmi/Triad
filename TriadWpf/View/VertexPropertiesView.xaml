@@ -13,13 +13,24 @@
 
             <TextBlock HorizontalAlignment="Center">Полюса вершины</TextBlock>
             <ListBox x:Name="lbPoluses" Height="100"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox Width="150" Name="txtPolusName"/>
-                <Button x:Name="btnAddPolus" Click="btnAddPolus_Click">Добавить полюс</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 3 0 3">
+                <TextBox Width="100" Name="txtPolusName"/>
+                <Button x:Name="btnAddPolus" Click="btnAddPolus_Click" Margin="2 0 0 0">Добавить полюс</Button>
             </StackPanel>
+            <Button>Удалить полюс</Button>
 
             <TextBlock HorizontalAlignment="Center">Параметры рутины</TextBlock>
-            <StackPanel x:Name="paramPanel"/>
+            <Border BorderBrush="Gray" CornerRadius="5" BorderThickness="1" Margin="2">
+             
+                <StackPanel x:Name="paramPanel">
+                    
+                    <StackPanel.Resources>
+                        <Style TargetType="local:ParamBox">
+                            <Setter Property="Margin" Value="3"/>
+                        </Style>
+                    </StackPanel.Resources>
+                </StackPanel>
+            </Border>
 
             <TextBlock HorizontalAlignment="Center" Margin="0 10 0 3">Переменные вершины</TextBlock>
             <TextBox x:Name="txtVars" TextWrapping="WrapWithOverflow" IsReadOnly="True"/>

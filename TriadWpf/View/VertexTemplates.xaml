@@ -3,7 +3,16 @@
                     xmlns:local="clr-namespace:TriadWpf.View"
                     xmlns:graphxctrl="clr-namespace:GraphX.Controls;assembly=GraphX.WPF.Controls">
     <Style TargetType="{x:Type graphxctrl:VertexControl}" x:Key="defaultVertex">
-
+        <Setter Property="VertexShape" Value="Ellipse"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Ellipse  Fill="DarkSlateGray"  Width="30" Height="30"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="graphxctrl:HighlightBehaviour.Highlighted" Value="True">
                 <Setter Property="Background" Value="Coral"/>
@@ -13,6 +22,7 @@
 
     <Style x:Key="PetriNetPlace">
         <Setter Property="graphxctrl:VertexControl.ShowLabel" Value="True"/>
+        <Setter Property="graphxctrl:VertexControl.VertexShape" Value="Ellipse"/>
         <Setter Property="graphxctrl:VertexControl.Template">
             <Setter.Value>
                 <ControlTemplate>
